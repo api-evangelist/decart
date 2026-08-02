@@ -1,0 +1,1168 @@
+generated: '2026-08-01'
+method: generated
+source: openapi/decart-api-openapi-original.json, openapi/decart-platform-openapi-original.json
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 75
+  by_action_class:
+    acting: 67
+    connected: 8
+  by_consequence:
+    write: 67
+    read: 8
+  human_in_the_loop_required: 0
+operations:
+- path: /v1/generate/lucy-image-2
+  method: post
+  operationId: generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/generate/lucy-pro-i2i
+  method: post
+  operationId: generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/generate/lucy_pro_i2i
+  method: post
+  operationId: generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/generate/lucy-image-latest
+  method: post
+  operationId: generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /watch-stream/{room_id}
+  method: post
+  operationId: watch_stream_watch_stream__room_id__post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/verify
+  method: post
+  operationId: verify_content_v1_verify_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/files
+  method: post
+  operationId: upload_file_v1_files_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/files/{file_id}
+  method: get
+  operationId: get_file_metadata_v1_files__file_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/files/{file_id}
+  method: delete
+  operationId: delete_file_v1_files__file_id__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/realtime/quota
+  method: get
+  operationId: get_realtime_quota_v1_realtime_quota_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jobs/lucy-clip
+  method: post
+  operationId: create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-pro-v2v
+  method: post
+  operationId: create_job_lucy_clip_v1_jobs_lucy_hyphen_pro_hyphen_v2v_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-clip-latest
+  method: post
+  operationId: create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_hyphen_latest_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-restyle-2
+  method: post
+  operationId: create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/mirage_v2
+  method: post
+  operationId: create_job_lucy_restyle_2_v1_jobs_mirage_underscore_v2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-restyle-v2v
+  method: post
+  operationId: create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_v2v_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-restyle-latest
+  method: post
+  operationId: create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_latest_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-robot-720p
+  method: post
+  operationId: create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_robot_hyphen_720p_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-samsung-robot-poc
+  method: post
+  operationId: create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_samsung_hyphen_robot_hyphen_poc_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-solomon-robot-poc
+  method: post
+  operationId: create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_solomon_hyphen_robot_hyphen_poc_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.5
+  method: post
+  operationId: create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_dot_5_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2-5
+  method: post
+  operationId: create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_hyphen_5_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_2_5
+  method: post
+  operationId: create_job_lucy_2_5_v1_jobs_lucy_underscore_2_underscore_5_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-latest
+  method: post
+  operationId: create_job_lucy_2_5_v1_jobs_lucy_hyphen_latest_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.1
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_dot_1_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_2_rt_preview
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_underscore_preview_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_2
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_underscore_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_2_rt
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2-v2v
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_hyphen_v2v_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_2_v2v
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_v2v_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_v2v_14b_rt
+  method: post
+  operationId: create_job_lucy_2_1_v1_jobs_lucy_underscore_v2v_underscore_14b_underscore_rt_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.1-vton
+  method: post
+  operationId: create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.viton
+  method: post
+  operationId: create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_viton_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.1.viton
+  method: post
+  operationId: create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_dot_viton_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton
+  method: post
+  operationId: create_job_lucy_vton_v1_jobs_lucy_hyphen_vton_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-2
+  method: post
+  operationId: create_job_lucy_vton_2_v1_jobs_lucy_hyphen_vton_hyphen_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.1-vton-2
+  method: post
+  operationId: create_job_lucy_vton_2_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3
+  method: post
+  operationId: create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_3_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.1-vton-3
+  method: post
+  operationId: create_job_lucy_vton_3_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_3_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-latest
+  method: post
+  operationId: create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_latest_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3.5
+  method: post
+  operationId: create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3-5
+  method: post
+  operationId: create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3.5-4-3
+  method: post
+  operationId: create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_4_hyphen_3_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3-5-4-3
+  method: post
+  operationId: create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_4_hyphen_3_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3.5-1-1
+  method: post
+  operationId: create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_1_hyphen_1_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3-5-1-1
+  method: post
+  operationId: create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_1_hyphen_1_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-image-2
+  method: post
+  operationId: create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_2_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-pro-i2i
+  method: post
+  operationId: create_job_lucy_image_v1_jobs_lucy_hyphen_pro_hyphen_i2i_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy_pro_i2i
+  method: post
+  operationId: create_job_lucy_image_v1_jobs_lucy_underscore_pro_underscore_i2i_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-image-latest
+  method: post
+  operationId: create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_latest_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/{job_id}
+  method: get
+  operationId: get_job_v1_jobs__job_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jobs/{job_id}/content
+  method: get
+  operationId: get_job_content_v1_jobs__job_id__content_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/client/tokens
+  method: post
+  operationId: create_client_token_v1_client_tokens_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/models/resolve
+  method: post
+  operationId: resolve_models_v1_models_resolve_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/generate/lucy-image-2
+  method: post
+  operationId: lucy_image_2_generate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-clip
+  method: post
+  operationId: lucy_edit_v2v_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-restyle-2
+  method: post
+  operationId: lucy_restyle_2_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.5
+  method: post
+  operationId: lucy_2_5_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-2.1
+  method: post
+  operationId: lucy_2_1_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-3
+  method: post
+  operationId: lucy_vton_3_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-2
+  method: post
+  operationId: lucy_vton_2_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/{job_id}
+  method: get
+  operationId: get_job_v1_jobs__job_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jobs/{job_id}/content
+  method: get
+  operationId: get_job_content_v1_jobs__job_id__content_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/files
+  method: post
+  operationId: upload_file_v1_files_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/files/{file_id}
+  method: get
+  operationId: get_file_metadata_v1_files__file_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/files/{file_id}
+  method: delete
+  operationId: delete_file_v1_files__file_id__delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/client/tokens
+  method: post
+  operationId: create_client_token_v1_client_tokens_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-latest
+  method: post
+  operationId: lucy_latest_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-vton-latest
+  method: post
+  operationId: lucy_vton_latest_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-restyle-latest
+  method: post
+  operationId: lucy_restyle_latest_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/jobs/lucy-clip-latest
+  method: post
+  operationId: lucy_clip_latest_job
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/generate/lucy-image-latest
+  method: post
+  operationId: lucy_image_latest_generate
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/models/resolve
+  method: post
+  operationId: resolve_model_aliases
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /v1/realtime/quota
+  method: get
+  operationId: get_realtime_quota_v1_realtime_quota_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

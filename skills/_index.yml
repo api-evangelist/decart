@@ -1,0 +1,53 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/.well-known/agent-skills/decart/skill.md +
+  openapi/decart-platform-openapi-original.json
+description: 'Agent Skills for the Decart API. One skill is provider-published — Decart
+  serves it from its own host at /.well-known/agent-skills/decart/skill.md, linked
+  from its A2A agent card — and is saved here verbatim. The remaining five are API
+  Evangelist skills generated against the published OpenAPI, grounded in verified
+  operationIds. The provider skill is SDK-shaped (how to use @decartai/sdk); the generated
+  skills are REST-shaped (which operation to call, in what order, and what the contract
+  does not give you).'
+skills:
+- file: decart-provider-skill.md
+  name: decart
+  method: searched
+  source: https://docs.platform.decart.ai/.well-known/agent-skills/decart/skill.md
+  publisher: Decart
+  license: MIT
+  api: https://docs.platform.decart.ai/
+  note: Saved verbatim. Linked from a2a/decart-agent-card.json skills[0].url.
+- file: decart-edit-video-queue.md
+  name: Edit a video with the Decart Queue API
+  method: generated
+  api: openapi/decart-platform-openapi-original.json
+  operations: [lucy_2_5_job, get_job_v1_jobs__job_id__get, get_job_content_v1_jobs__job_id__content_get,
+    resolve_model_aliases]
+- file: decart-edit-image-process.md
+  name: Edit an image synchronously with the Decart Process API
+  method: generated
+  api: openapi/decart-platform-openapi-original.json
+  operations: [lucy_image_2_generate, lucy_image_latest_generate]
+- file: decart-mint-client-token.md
+  name: Mint a scoped client token for a Decart realtime session
+  method: generated
+  api: openapi/decart-platform-openapi-original.json
+  operations: [create_client_token_v1_client_tokens_post, get_realtime_quota_v1_realtime_quota_get]
+- file: decart-manage-reference-files.md
+  name: Upload and reuse a Decart reference image by file id
+  method: generated
+  api: openapi/decart-platform-openapi-original.json
+  operations: [upload_file_v1_files_post, get_file_metadata_v1_files__file_id__get,
+    delete_file_v1_files__file_id__delete]
+- file: decart-virtual-try-on.md
+  name: Run a virtual try-on job with Decart Lucy VTON
+  method: generated
+  api: openapi/decart-platform-openapi-original.json
+  operations: [lucy_vton_3_job, lucy_vton_2_job, get_job_v1_jobs__job_id__get, get_job_content_v1_jobs__job_id__content_get]
+coverage:
+  skills_total: 6
+  provider_published: 1
+  generated: 5
+  operations_covered: 13
+  operations_total: 20

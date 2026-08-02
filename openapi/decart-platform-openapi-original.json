@@ -1,0 +1,2283 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Decart API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/v1/generate/lucy-image-2": {
+      "post": {
+        "summary": "Lucy Image 2",
+        "description": "Edit image from image using Lucy Image 2 model.",
+        "operationId": "lucy_image_2_generate",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_generate_lucy_image_2_v1_generate_lucy_image_2_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-clip": {
+      "post": {
+        "summary": "Lucy Clip",
+        "description": "Edit video using Lucy Clip with prompt enhancement.",
+        "operationId": "lucy_edit_v2v_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_clip_v1_jobs_lucy_clip_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-restyle-2": {
+      "post": {
+        "summary": "Lucy Restyle 2",
+        "description": "Restyle video using Lucy Restyle 2 model.",
+        "operationId": "lucy_restyle_2_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_restyle_2_v1_jobs_lucy_restyle_2_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-2.5": {
+      "post": {
+        "summary": "Lucy 2.5",
+        "description": "Edit video using Lucy 2.5 model with optional prompt and reference image. Supports self-anchoring (on by default).",
+        "operationId": "lucy_2_5_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_2_5_v1_jobs_lucy_2_5_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-2.1": {
+      "post": {
+        "summary": "Lucy 2.1",
+        "description": "Edit video using Lucy 2.1 model with optional prompt and reference image.",
+        "operationId": "lucy_2_1_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_2_1_v1_jobs_lucy_2_1_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-vton-3": {
+      "post": {
+        "summary": "Lucy VTON 3",
+        "description": "Edit video with virtual try-on using the Lucy VTON 3 model.",
+        "operationId": "lucy_vton_3_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_vton_3_v1_jobs_lucy_vton_3_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-vton-2": {
+      "post": {
+        "summary": "Lucy VTON 2",
+        "description": "Edit video with virtual try-on using the Lucy VTON 2 model.",
+        "operationId": "lucy_vton_2_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_vton_2_v1_jobs_lucy_vton_2_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/{job_id}": {
+      "get": {
+        "summary": "Get Job",
+        "description": "Get the status and metadata of a job by its ID. Poll this endpoint to check if your job has completed.",
+        "operationId": "get_job_v1_jobs__job_id__get",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/{job_id}/content": {
+      "get": {
+        "summary": "Get Job Content",
+        "description": "Download the result of a completed job.\n\nReturns:\n    Binary content (image/video) or error if not ready/not found",
+        "operationId": "get_job_content_v1_jobs__job_id__content_get",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Job Id"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/files": {
+      "post": {
+        "summary": "Upload File",
+        "description": "Upload a file once and get back a `file_*` reference id you can reuse across generations.\n\nThe same reference can be passed to realtime `set_image` as `image_ref`, avoiding a re-upload of the underlying bytes on every call.",
+        "operationId": "upload_file_v1_files_post",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_upload_file_v1_files_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileReferenceResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/files/{file_id}": {
+      "get": {
+        "summary": "Get File Metadata",
+        "description": "Get metadata for an uploaded file.",
+        "operationId": "get_file_metadata_v1_files__file_id__get",
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileReferenceResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete File",
+        "description": "Delete an uploaded file early, before its TTL expires.",
+        "operationId": "delete_file_v1_files__file_id__delete",
+        "parameters": [
+          {
+            "name": "file_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "File Id"
+            }
+          },
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful Response"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/client/tokens": {
+      "post": {
+        "summary": "Create Client Token",
+        "description": "Create an ephemeral API token for client sessions.",
+        "operationId": "create_client_token_v1_client_tokens_post",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/ClientTokenRequest"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Body"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientTokenResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "No or invalid API key provided"
+          },
+          "403": {
+            "description": "Cannot create client token from a client token"
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-latest": {
+      "post": {
+        "summary": "Lucy Latest",
+        "description": "Edit video using the latest Lucy video model with optional prompt and reference image.",
+        "operationId": "lucy_latest_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_2_1_v1_jobs_lucy_latest_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-vton-latest": {
+      "post": {
+        "summary": "Lucy VTON Latest",
+        "description": "Edit video with virtual try-on using the latest Lucy VTON model.",
+        "operationId": "lucy_vton_latest_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_vton_v1_jobs_lucy_vton_latest_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-restyle-latest": {
+      "post": {
+        "summary": "Lucy Restyle Latest",
+        "description": "Restyle video using the latest Lucy Restyle model.",
+        "operationId": "lucy_restyle_latest_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_restyle_v1_jobs_lucy_restyle_latest_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/jobs/lucy-clip-latest": {
+      "post": {
+        "summary": "Lucy Clip Latest",
+        "description": "Edit video using the latest Lucy Clip model.",
+        "operationId": "lucy_clip_latest_job",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_create_job_lucy_clip_v1_jobs_lucy_clip_latest_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/generate/lucy-image-latest": {
+      "post": {
+        "summary": "Lucy Image Latest",
+        "description": "Edit image from image using the latest Lucy Image model.",
+        "operationId": "lucy_image_latest_generate",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          },
+          {
+            "name": "User-Agent",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "User-Agent"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_generate_lucy_image_v1_generate_lucy_image_latest_post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "image/png": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/models/resolve": {
+      "post": {
+        "summary": "Resolve Model Aliases",
+        "description": "Resolve one or more public model names/aliases to canonical model ids.",
+        "operationId": "resolve_model_aliases",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ModelResolveRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ModelResolveResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/realtime/quota": {
+      "get": {
+        "summary": "Get Realtime Quota",
+        "description": "Current concurrent realtime session quota state for the authenticated account.\n\nFor org-scoped keys the count is org-wide (shared across the org's keys/users).",
+        "operationId": "get_realtime_quota_v1_realtime_quota_get",
+        "parameters": [
+          {
+            "name": "x-api-key",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "API key for authentication",
+              "title": "X-Api-Key"
+            },
+            "description": "API key for authentication"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RealtimeQuotaResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Body_create_job_lucy_vton_3_v1_jobs_lucy_vton_3_post": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "format": "binary",
+            "title": "Data",
+            "description": "Video file to process"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt. Defaults to an empty string.",
+            "default": ""
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_vton_3_v1_jobs_lucy_vton_3_post"
+      },
+      "Body_create_job_lucy_vton_2_v1_jobs_lucy_vton_2_post": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "format": "binary",
+            "title": "Data",
+            "description": "Video file to process"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt. Defaults to an empty string.",
+            "default": ""
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_vton_2_v1_jobs_lucy_vton_2_post"
+      },
+      "Body_create_job_lucy_clip_v1_jobs_lucy_clip_post": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt for the video editing"
+          },
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "format": "binary",
+            "title": "Data",
+            "description": "Video file to process"
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image file (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt",
+          "data"
+        ],
+        "title": "Body_create_job_lucy_clip_v1_jobs_lucy_clip_post"
+      },
+      "Body_create_job_lucy_restyle_2_v1_jobs_lucy_restyle_2_post": {
+        "properties": {
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "Text prompt for the video editing (optional)"
+          },
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "format": "binary",
+            "title": "Data",
+            "description": "Video file to process"
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image file to process (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_restyle_2_v1_jobs_lucy_restyle_2_post"
+      },
+      "Body_generate_lucy_image_2_v1_generate_lucy_image_2_post": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt for the image generation"
+          },
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "format": "binary",
+            "title": "Data",
+            "description": "Image file to process"
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image file (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the image generation"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "480p"
+            ],
+            "title": "Resolution",
+            "description": "Resolution of the image generation",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt",
+          "data"
+        ],
+        "title": "Body_generate_lucy_image_2_v1_generate_lucy_image_2_post"
+      },
+      "ClientTokenRequest": {
+        "properties": {
+          "expiresIn": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expiresin",
+            "description": "Seconds until the token expires (default 60)"
+          },
+          "allowedModels": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowedmodels",
+            "description": "Restrict which models this token can access (max 20)"
+          },
+          "allowedOrigins": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Allowedorigins",
+            "description": "Restrict which web origins this token can be used from (max 20)"
+          },
+          "constraints": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TokenConstraints"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Operational limits for the token"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Metadata"
+          }
+        },
+        "type": "object",
+        "title": "ClientTokenRequest"
+      },
+      "ClientTokenResponse": {
+        "properties": {
+          "apiKey": {
+            "type": "string",
+            "title": "Apikey"
+          },
+          "expiresAt": {
+            "type": "string",
+            "title": "Expiresat"
+          },
+          "permissions": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Permissions"
+          },
+          "constraints": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Constraints"
+          }
+        },
+        "type": "object",
+        "required": [
+          "apiKey",
+          "expiresAt"
+        ],
+        "title": "ClientTokenResponse"
+      },
+      "TokenConstraints": {
+        "properties": {
+          "realtime": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RealtimeConstraints"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object",
+        "title": "TokenConstraints"
+      },
+      "RealtimeQuotaResponse": {
+        "properties": {
+          "limit": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Limit"
+          },
+          "active": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Active"
+          },
+          "remaining": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Remaining"
+          }
+        },
+        "type": "object",
+        "title": "RealtimeQuotaResponse"
+      },
+      "RealtimeConstraints": {
+        "properties": {
+          "maxSessionDuration": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Maxsessionduration"
+          }
+        },
+        "type": "object",
+        "title": "RealtimeConstraints"
+      },
+      "Body_upload_file_v1_files_post": {
+        "properties": {
+          "file": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "format": "binary",
+            "title": "File",
+            "description": "File to upload"
+          },
+          "ttl_seconds": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ttl Seconds",
+            "description": "TTL in seconds (60..2_592_000), or \"persistent\" for no expiry. Omit for the platform default (24h)."
+          }
+        },
+        "type": "object",
+        "required": [
+          "file"
+        ],
+        "title": "Body_upload_file_v1_files_post"
+      },
+      "FileReferenceResponse": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "filename": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Filename"
+          },
+          "mime_type": {
+            "type": "string",
+            "title": "Mime Type"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "title": "Size Bytes"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "title": "Created At"
+          },
+          "expires_at": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Expires At"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "filename",
+          "mime_type",
+          "size_bytes",
+          "created_at",
+          "expires_at"
+        ],
+        "title": "FileReferenceResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "ModelResolveResponse": {
+        "properties": {
+          "model_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Id"
+          },
+          "model_ids": {
+            "anyOf": [
+              {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model Ids"
+          }
+        },
+        "type": "object",
+        "title": "ModelResolveResponse"
+      },
+      "Body_create_job_lucy_restyle_v1_jobs_lucy_restyle_latest_post": {
+        "properties": {
+          "prompt": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Prompt",
+            "description": "Text prompt for the video editing (optional)"
+          },
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Video file to process",
+            "format": "binary"
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image file to process (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_restyle_v1_jobs_lucy_restyle_latest_post"
+      },
+      "Body_generate_lucy_image_v1_generate_lucy_image_latest_post": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt for the image generation"
+          },
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Image file to process",
+            "format": "binary"
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image file (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the image generation"
+          },
+          "resolution": {
+            "type": "string",
+            "enum": [
+              "720p",
+              "480p"
+            ],
+            "title": "Resolution",
+            "description": "Resolution of the video generation",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt",
+          "data"
+        ],
+        "title": "Body_generate_lucy_image_v1_generate_lucy_image_latest_post"
+      },
+      "Body_create_job_lucy_2_5_v1_jobs_lucy_2_5_post": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Video file to process",
+            "format": "binary"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt. Defaults to an empty string.",
+            "default": ""
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          },
+          "self_anchor": {
+            "type": "boolean",
+            "title": "Self Anchor",
+            "description": "Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_2_5_v1_jobs_lucy_2_5_post"
+      },
+      "Body_create_job_lucy_2_1_v1_jobs_lucy_2_1_post": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Video file to process",
+            "format": "binary"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt. Defaults to an empty string.",
+            "default": ""
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_2_1_v1_jobs_lucy_2_1_post"
+      },
+      "Body_create_job_lucy_vton_v1_jobs_lucy_vton_latest_post": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Video file to process",
+            "format": "binary"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt. Defaults to an empty string.",
+            "default": ""
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_vton_v1_jobs_lucy_vton_latest_post"
+      },
+      "Body_create_job_lucy_2_1_v1_jobs_lucy_latest_post": {
+        "properties": {
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Video file to process",
+            "format": "binary"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt. Defaults to an empty string.",
+            "default": ""
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "data"
+        ],
+        "title": "Body_create_job_lucy_2_1_v1_jobs_lucy_latest_post"
+      },
+      "ModelResolveRequest": {
+        "properties": {
+          "model": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Model"
+          },
+          "models": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Models"
+          }
+        },
+        "type": "object",
+        "title": "ModelResolveRequest"
+      },
+      "Body_create_job_lucy_clip_v1_jobs_lucy_clip_latest_post": {
+        "properties": {
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "description": "Text prompt for the video editing"
+          },
+          "data": {
+            "type": "string",
+            "contentMediaType": "application/octet-stream",
+            "title": "Data",
+            "description": "Video file to process",
+            "format": "binary"
+          },
+          "reference_image": {
+            "anyOf": [
+              {
+                "type": "string",
+                "contentMediaType": "application/octet-stream",
+                "format": "binary"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reference Image",
+            "description": "Reference image file (optional)"
+          },
+          "seed": {
+            "type": "integer",
+            "maximum": 4294967295,
+            "minimum": 0,
+            "title": "Seed",
+            "description": "Seed for the video generation"
+          },
+          "resolution": {
+            "type": "string",
+            "const": "720p",
+            "title": "Resolution",
+            "description": "Resolution of the video",
+            "default": "720p"
+          },
+          "enhance_prompt": {
+            "type": "boolean",
+            "title": "Enhance Prompt",
+            "description": "Whether to enhance the prompt",
+            "default": true
+          }
+        },
+        "type": "object",
+        "required": [
+          "prompt",
+          "data"
+        ],
+        "title": "Body_create_job_lucy_clip_v1_jobs_lucy_clip_latest_post"
+      }
+    }
+  }
+}

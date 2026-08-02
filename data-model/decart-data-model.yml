@@ -1,0 +1,139 @@
+generated: '2026-08-01'
+method: derived
+source: openapi/decart-api-openapi-original.json
+description: 'Entity-relationship graph derived from the Decart OpenAPI schemas and
+  operation paths. The model is deliberately small: Decart is a generation platform,
+  not a records system. Four addressable entities exist — Job, File, ClientToken and
+  Model — plus a RealtimeSession that is observable through quota and token constraints
+  but is never addressed by id in the REST contract.'
+entities:
+- name: Job
+  description: An asynchronous video or restyle generation submitted to the Queue
+    API. Created by POSTing multipart media plus a prompt to a per-model route, then
+    polled to completion and downloaded.
+  id_field: job_id
+  id_type: string
+  addressed_by: /v1/jobs/{job_id}
+  created_by:
+  - lucy_2_5_job
+  - lucy_2_1_job
+  - lucy_latest_job
+  - lucy_edit_v2v_job
+  - lucy_clip_latest_job
+  - lucy_restyle_2_job
+  - lucy_restyle_latest_job
+  - lucy_vton_3_job
+  - lucy_vton_2_job
+  - lucy_vton_latest_job
+  read_by: [get_job_v1_jobs__job_id__get, get_job_content_v1_jobs__job_id__content_get]
+  fields_documented:
+    status: Job status; terminal value "completed"
+  note: The 200 response of get_job is typed as an empty schema in both published
+    specs, so the job object's full shape is not machine-readable from the contract.
+    Only the status field is documented in prose.
+- name: File
+  description: An uploaded asset (typically a reference image) that can be reused
+    across generations by id instead of being re-encoded on every call.
+  id_field: id
+  id_prefix: file_
+  id_type: string
+  addressed_by: /v1/files/{file_id}
+  schema: FileReferenceResponse
+  created_by: [upload_file_v1_files_post]
+  read_by: [get_file_metadata_v1_files__file_id__get]
+  deleted_by: [delete_file_v1_files__file_id__delete]
+  fields:
+  - {name: id, type: string, required: true}
+  - {name: filename, type: string|null, required: true}
+  - {name: mime_type, type: string, required: true}
+  - {name: size_bytes, type: integer, required: true}
+  - {name: created_at, type: date-time, required: true}
+  - {name: expires_at, type: date-time|null, required: true}
+  lifecycle:
+    ttl_seconds: 60 to 2592000, or "persistent"
+    default: 24 hours
+- name: ClientToken
+  description: A short-lived credential minted server-side for browser and mobile
+    realtime sessions.
+  id_prefix: ek_
+  addressed_by: null
+  schema: ClientTokenResponse
+  created_by: [create_client_token_v1_client_tokens_post]
+  request_schema: ClientTokenRequest
+  fields:
+  - {name: apiKey, type: string, required: true}
+  - {name: token, type: string|null, required: false}
+  - {name: expiresAt, type: string, required: true}
+  - {name: permissions, type: object|null, required: false}
+  - {name: constraints, type: object|null, required: false}
+  note: Write-only entity — there is no read, list, or revoke operation. A token expires
+    rather than being deleted.
+- name: Model
+  description: A named generation model. Public names include rolling -latest aliases
+    that resolve to a canonical model id.
+  id_field: model_id
+  addressed_by: null
+  schema: ModelResolveResponse
+  resolved_by: [resolve_model_aliases]
+  request_schema: ModelResolveRequest
+  note: Models are not a CRUD resource. The only operation is alias resolution; the
+    catalog itself is published as documentation and pricing tables, not as an API
+    listing.
+- name: RealtimeSession
+  description: A live WebRTC generation session. Not addressable by id in the REST
+    contract — it is created by the SDK over WebRTC and observed in aggregate through
+    the quota endpoint.
+  addressed_by: null
+  observed_by: [get_realtime_quota_v1_realtime_quota_get]
+  schema: RealtimeQuotaResponse
+  fields:
+  - {name: limit, type: integer|null}
+  - {name: active, type: integer|null}
+  - {name: remaining, type: integer|null}
+  constrained_by: TokenConstraints.realtime.maxSessionDuration
+relationships:
+- from: Job
+  to: File
+  type: has_many
+  via: reference_image / data submitted by file_ id
+  confidence: medium
+  evidence: The Files API documents passing a file_ id by reference to job submission
+    and realtime connect/set/setImage instead of re-uploading the asset. The multipart
+    body schemas type `data` and `reference_image` as binary, so the by-reference form
+    is documented in prose rather than in the spec.
+- from: Job
+  to: Model
+  type: belongs_to
+  via: route path segment (/v1/jobs/<model>)
+  confidence: high
+  evidence: The model is encoded in the path, one route per model id or alias, rather
+    than as a request field.
+- from: ClientToken
+  to: Model
+  type: has_many
+  via: allowedModels
+  confidence: high
+  evidence: ClientTokenRequest.allowedModels restricts which models the token may
+    access (max 20).
+- from: ClientToken
+  to: RealtimeSession
+  type: has_many
+  via: constraints.realtime.maxSessionDuration
+  confidence: high
+  evidence: TokenConstraints.realtime caps the duration of sessions opened with the
+    token.
+- from: RealtimeSession
+  to: File
+  type: has_many
+  via: file_ reference images passed to connect/set/setImage
+  confidence: medium
+  evidence: May 2026 changelog — Files API for realtime reference images.
+grpc_session_model:
+  service: decart.inference.a2v.A2VService
+  entity: A2V session
+  id_field: session_id
+  note: session_id is a token, not bound to the TCP connection; a dropped gRPC channel
+    can be reattached with the same session_id. Lifecycle is Initialize → Prompt →
+    Infer (loop) → Finish.
+  source: grpc/decart-a2v.proto
+render: null

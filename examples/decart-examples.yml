@@ -1,0 +1,92 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/examples/overview + https://github.com/DecartAI
+description: 'Decart''s published example surface. Note the split: neither OpenAPI
+  document carries a single in-spec `example` or `examples` object — the contract is
+  bare — but the documentation and GitHub org carry an unusually deep set of runnable
+  reference applications, one per integration shape. The examples live outside the
+  machine-readable contract, which is exactly the gap an agent hits when it tries to
+  call the API from the spec alone.'
+in_spec_examples:
+  present: false
+  detail: openapi/decart-api-openapi-original.json (55 operations) and openapi/decart-platform-openapi-original.json
+    (20 operations) declare no request or response examples. Successful job responses
+    are typed as empty schemas.
+docs_hub: https://docs.platform.decart.ai/examples/overview
+cookbooks:
+- name: Lucy Edit in ComfyUI
+  url: https://docs.platform.decart.ai/examples/comfyui
+  description: Text-guided video editing through a ComfyUI node graph.
+- name: E-commerce Virtual Try-On
+  url: https://docs.platform.decart.ai/examples/ecommerce-try-on
+  description: Adding a "Try it on" button to a product page with realtime virtual
+    try-on.
+- name: Realtime Mobile App
+  url: https://docs.platform.decart.ai/examples/real-time-mobile-app
+  description: Building a realtime AI video app with Expo and the Decart SDK.
+- name: Use Cases
+  url: https://docs.platform.decart.ai/examples/use-cases
+  description: What can be built with the realtime and batch models.
+- name: Prompting Guide (Lucy 2.5)
+  url: https://docs.platform.decart.ai/models/realtime/lucy-2.5-prompting
+  description: Prompt templates, worked examples and troubleshooting per edit type.
+- name: Video Queue API migration
+  url: https://docs.platform.decart.ai/resources/migrations/video-queue-api
+  description: Moving from the synchronous generate endpoint to the asynchronous job-based
+    Queue API.
+reference_applications:
+- name: Decart-XR
+  url: https://github.com/DecartAI/Decart-XR
+  language: C#
+  description: Realtime world transformation app for Meta Quest.
+- name: Lucy-Edit-ComfyUI
+  url: https://github.com/DecartAI/Lucy-Edit-ComfyUI
+  language: Python
+  description: ComfyUI custom nodes for Lucy Edit.
+- name: lucy-minecraft-mod
+  url: https://github.com/DecartAI/lucy-minecraft-mod
+  language: Kotlin
+  description: Fabric mod for Minecraft 1.21.8 using live video restyling.
+- name: sidekick
+  url: https://github.com/DecartAI/sidekick
+  language: Python
+  description: Open-source conversational video-call bot.
+- name: tryon-examples
+  url: https://github.com/DecartAI/tryon-examples
+  description: Example apps adding realtime virtual try-on.
+- name: decart-example-expo-realtime
+  url: https://github.com/DecartAI/decart-example-expo-realtime
+  language: TypeScript
+  description: Expo app demonstrating the realtime video models.
+- name: decart-example-react-native-realtime
+  url: https://github.com/DecartAI/decart-example-react-native-realtime
+  language: TypeScript
+  description: Bare React Native (CLI) realtime example — the non-Expo variant.
+- name: decart-example-android-realtime
+  url: https://github.com/DecartAI/decart-example-android-realtime
+  language: Kotlin
+  description: Android realtime example.
+- name: decart-example-telegram-bot
+  url: https://github.com/DecartAI/decart-example-telegram-bot
+  language: TypeScript
+  description: Telegram bot using the image and video models.
+- name: decart-robotics
+  url: https://github.com/DecartAI/decart-robotics
+  language: Python
+  description: Oasis 3 world model SDK, an RL example, and a Colab training notebook.
+- name: v0-flight-simulator
+  url: https://github.com/DecartAI/v0-flight-simulator
+  language: TypeScript
+- name: diffusers-lucy-edit
+  url: https://github.com/DecartAI/diffusers-lucy-edit
+  language: Python
+  description: Hugging Face Diffusers integration for Lucy Edit.
+code_samples:
+  languages: [javascript, typescript, python, swift, kotlin, bash]
+  detail: Every getting-started, model and SDK page carries multi-language CodeGroup
+    samples (JavaScript, Python, cURL, and platform-native Swift/Kotlin on the mobile
+    SDK pages).
+coverage:
+  cookbooks: 6
+  reference_applications: 12
+  in_spec_examples: 0

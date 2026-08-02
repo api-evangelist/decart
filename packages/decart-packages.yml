@@ -1,0 +1,107 @@
+generated: '2026-08-01'
+method: searched
+source: npm registry, PyPI, docs.platform.decart.ai/sdks/*, github.com/DecartAI
+description: First-party Decart client libraries and framework adapters. Four core
+  SDKs (JavaScript, Python, Swift, Android) each cover the Realtime, Queue and Process
+  surfaces; a separate gRPC-only Python package fronts the Oasis 3 Preview world model;
+  three adapters wire Decart into the Vercel AI SDK, LangChain.js and TanStack AI.
+packages:
+- language: javascript
+  registry: npm
+  name: '@decartai/sdk'
+  version: 0.1.17
+  url: https://www.npmjs.com/package/@decartai/sdk
+  install: npm install @decartai/sdk
+  repository: https://github.com/DecartAI/sdk
+  docs: https://docs.platform.decart.ai/sdks/javascript
+  license: MIT
+  official: true
+  covers: [realtime, queue, process, files, tokens]
+- language: python
+  registry: pypi
+  name: decart
+  version: 0.1.4
+  url: https://pypi.org/project/decart/
+  install: pip install decart
+  extras: pip install decart[realtime]
+  repository: https://github.com/DecartAI/decart-python
+  docs: https://docs.platform.decart.ai/sdks/python
+  official: true
+  covers: [realtime, queue, process, files, tokens]
+- language: python
+  registry: pypi
+  name: decart-oasis
+  version: 0.0.1
+  url: https://pypi.org/project/decart-oasis/
+  install: pip install decart-oasis
+  docs: https://docs.platform.decart.ai/models/realtime/oasis-3
+  official: true
+  covers: [oasis-3-preview-grpc]
+  note: Thin gRPC client for the Oasis 3 Preview action-to-video service. Ships the
+    proto3 definitions captured in grpc/. Requires Python 3.10+.
+- language: swift
+  registry: swift-package-manager
+  name: DecartSDK
+  version: 0.6.0
+  url: https://github.com/decartai/decart-ios
+  install: '.package(url: "https://github.com/decartai/decart-ios.git", from: "0.6.0")'
+  repository: https://github.com/DecartAI/decart-ios
+  docs: https://docs.platform.decart.ai/sdks/swift
+  official: true
+  covers: [realtime, queue, process]
+- language: kotlin
+  registry: jitpack
+  name: com.github.DecartAI:decart-android
+  version: 0.6.0
+  url: https://github.com/decartai/decart-android
+  install: implementation("com.github.DecartAI:decart-android:0.6.0")
+  repository: https://github.com/DecartAI/decart-android
+  docs: https://docs.platform.decart.ai/sdks/android
+  official: true
+  covers: [realtime, queue]
+  note: Distributed through JitPack rather than Maven Central; the JitPack repository
+    must be added to settings.gradle.kts.
+- language: javascript
+  registry: npm
+  name: '@decartai/ai-sdk-provider'
+  version: 0.0.3
+  url: https://www.npmjs.com/package/@decartai/ai-sdk-provider
+  install: npm install @decartai/ai-sdk-provider
+  repository: https://github.com/DecartAI/ai-sdk-provider
+  docs: https://docs.platform.decart.ai/ai-frameworks/ai-sdk
+  official: true
+  covers: [vercel-ai-sdk-adapter]
+- language: javascript
+  registry: npm
+  name: '@decartai/langchain'
+  version: 0.1.1
+  url: https://www.npmjs.com/package/@decartai/langchain
+  install: npm install @decartai/langchain
+  repository: https://github.com/DecartAI/langchain-js-decart
+  docs: https://docs.platform.decart.ai/ai-frameworks/langchain
+  official: true
+  covers: [langchain-js-adapter]
+- language: typescript
+  registry: github
+  name: tanstack-ai-adapter
+  url: https://github.com/DecartAI/tanstack-ai-adapter
+  repository: https://github.com/DecartAI/tanstack-ai-adapter
+  docs: https://docs.platform.decart.ai/ai-frameworks/tanstack-ai
+  official: true
+  covers: [tanstack-ai-adapter]
+  note: Documented as a supported framework adapter; no matching npm package was found
+    under @decartai at the time of probing, so the GitHub repository is recorded as
+    the distribution point.
+summary:
+  official_count: 8
+  languages: [javascript, typescript, python, swift, kotlin]
+  registries: [npm, pypi, swift-package-manager, jitpack, github]
+registries_probed:
+  npm: hit
+  pypi: hit
+  maven-central: miss (Android SDK is distributed via JitPack)
+  nuget: miss
+  pkg.go.dev: miss
+  rubygems: miss
+  packagist: miss
+  crates.io: miss

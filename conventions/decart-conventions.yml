@@ -1,0 +1,98 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/ + openapi/decart-api-openapi-original.json
+description: Cross-cutting request/response semantics for the Decart API — how a caller
+  authenticates, submits work, polls it, references uploaded assets, and reads errors
+  across the three surfaces (Realtime, Queue, Process) plus the Oasis gRPC service.
+authentication:
+  style: api-key-header
+  header: x-api-key
+  server_key_prefix: dct_
+  client_token_prefix: ek_
+  detail: authentication/decart-authentication.yml
+transport:
+  rest:
+    base_url: https://api.decart.ai
+    request_encoding: multipart/form-data for media submission; application/json for
+      token and model-resolve calls
+    response_encoding: application/json for jobs and metadata; raw image bytes (image/png)
+      for the synchronous Process API; raw media bytes for job content download
+  realtime:
+    protocol: WebRTC
+    transport_manager: LiveKit-managed session (migrated from a bespoke WebRTC stack
+      across the JavaScript, Android, Swift and Python SDKs during 2026)
+    codecs: h264 (default) or vp9
+    session_control: prompt and reference image can be changed mid-session
+  grpc:
+    service: decart.inference.a2v.A2VService
+    session_model: Initialize → Prompt → Infer (loop) → Finish
+    reconnection: session_id is a token, not bound to the TCP connection; a dropped
+      channel can be re-established with the same session_id
+idempotency:
+  supported: false
+  detail: Decart publishes no idempotency key, no request-deduplication header, and
+    no replay-safe retry contract. Job submission is a POST that creates a new job
+    each time it is called. Recorded as absent — no Idempotency pointer is emitted
+    for this provider.
+async_model:
+  style: submit-and-poll
+  submit: POST /v1/jobs/<model> returns a job identifier
+  poll: GET /v1/jobs/{job_id} (get_job_v1_jobs__job_id__get) returns status and metadata
+  fetch: GET /v1/jobs/{job_id}/content (get_job_content_v1_jobs__job_id__content_get)
+    downloads the rendered media
+  terminal_status: completed
+  callbacks: none — there is no webhook or callback surface; polling is the only completion
+    signal
+  sdk_helper: client.queue.submitAndPoll() wraps the submit/poll/fetch loop with an
+    onStatusChange callback
+pagination:
+  supported: false
+  detail: No list endpoint exists in either published spec. Jobs and files are addressed
+    by id, never enumerated, so there is no pagination contract.
+file_references:
+  upload: POST /v1/files (upload_file_v1_files_post) returns a file_* id
+  reuse: The file_* id can be passed by reference to realtime connect/set/setImage
+    and to job submission instead of re-encoding the asset on every call
+  ttl: 60 to 2,592,000 seconds, or "persistent"; default 24 hours
+  delete: DELETE /v1/files/{file_id} removes it before the TTL expires
+model_aliasing:
+  mechanism: Rolling aliases resolve to a pinned model id
+  aliases: [lucy-latest, lucy-vton-latest, lucy-restyle-latest, lucy-clip-latest, lucy-image-latest]
+  resolve_endpoint: POST /v1/models/resolve (resolve_model_aliases)
+  guidance: Pin an explicit model id (lucy-2.5, lucy-vton-3, …) for stable behaviour;
+    the -latest aliases move when a new generation ships.
+versioning:
+  scheme: uri-path
+  current: v1
+  model_versioning: Capability changes ship as new model ids rather than as new API
+    versions; the /v1 path has been stable across the Lucy 2.1 → 2.5 and VTON 2 →
+    3 transitions.
+error_envelope:
+  rest:
+    format: FastAPI validation envelope, not RFC 9457
+    schema: "HTTPValidationError { detail: [ValidationError] }"
+    validation_error_fields: [loc, msg, type, input, ctx]
+    content_type: application/json
+  grpc:
+    format: "decart.inference.common.Error { code, message, details }"
+    codes_enum: decart.inference.common.ErrorCode
+  detail: errors/decart-problem-types.yml
+request_tracing:
+  request_id_header: none published
+  realtime_diagnostics: SDKs expose connection quality on a good | fair | poor | critical
+    scale with a limiting factor (bandwidth, latency, loss, stall, cpu), a checkConnectivity()
+    preflight, and an optional glass-to-glass latency measurement (debugQuality)
+rate_limit_signaling:
+  headers: none published
+  mechanism: GET /v1/realtime/quota returns limit / active / remaining concurrent
+    realtime sessions
+  detail: rate-limits/decart-rate-limits.yml
+metadata:
+  client_tokens: an arbitrary metadata object may be attached when minting a client
+    token
+cross_links:
+  authentication: authentication/decart-authentication.yml
+  errors: errors/decart-problem-types.yml
+  lifecycle: lifecycle/decart-lifecycle.yml
+  rate_limits: rate-limits/decart-rate-limits.yml
+  changelog: changelog/decart-changelog.yml

@@ -1,0 +1,90 @@
+generated: '2026-08-01'
+method: derived
+source: mcp/decart-mcp-tools.json + openapi/decart-platform-openapi-original.json
+description: 'Binds every tool Decart''s hosted MCP server exposes to its backing
+  OpenAPI operation. The headline finding is a complete surface divergence: Decart''s
+  MCP server is a documentation-knowledge server, so all three of its tools are MCP-only
+  and none of the 20 published REST operations has a tool. An agent can read the Decart
+  docs over MCP but cannot submit a job, upload a file, or mint a client token through
+  it — those require direct REST calls against api.decart.ai with an x-api-key.'
+surfaces:
+  openapi:
+  - file: openapi/decart-platform-openapi-original.json
+    source: https://docs.platform.decart.ai/openapi.json
+    note: Curated published spec — 19 paths, 20 operations, human-readable operationIds.
+    gated: false
+  - file: openapi/decart-api-openapi-original.json
+    source: https://api.decart.ai/openapi.json
+    note: Raw generated spec served from the API host root — 54 paths, 55 operations,
+      including model aliases and internal/preview routes not in the curated spec.
+    gated: false
+  graphql: null
+  grpc:
+  - files: [grpc/decart-a2v.proto, grpc/decart-common.proto]
+    service: decart.inference.a2v.A2VService
+    note: Oasis 3 Preview action-to-video session protocol; published inside the decart-oasis
+      Python SDK sdist.
+  mcp:
+    url: https://docs.platform.decart.ai/mcp
+    gated: false
+    note: tools/list responds anonymously; inputSchemas are real, not inferred.
+crosswalk: []
+mcp_only:
+- tool: search_decart_api_platform
+  reason: Documentation full-text search over the Decart knowledge base. No REST operation
+    exposes docs search; the backing index is the Mintlify-hosted docs corpus, not
+    api.decart.ai.
+- tool: query_docs_filesystem_decart_api_platform
+  reason: Read-only virtual filesystem over the documentation pages and OpenAPI specs.
+    No REST equivalent.
+- tool: submit_feedback
+  reason: Documentation feedback submission routed to the docs team. No REST equivalent.
+rest_only:
+- capability: Queue API — asynchronous video jobs
+  note: One operation per model family, each accepting multipart video plus a prompt
+    and optional reference image. `lucy_edit_v2v_job` is the Lucy Clip submit operation
+    at /v1/jobs/lucy-clip.
+  operations:
+  - lucy_2_5_job
+  - lucy_2_1_job
+  - lucy_latest_job
+  - lucy_edit_v2v_job
+  - lucy_clip_latest_job
+  - lucy_restyle_2_job
+  - lucy_restyle_latest_job
+  - lucy_vton_3_job
+  - lucy_vton_2_job
+  - lucy_vton_latest_job
+- capability: Queue API — job status and content retrieval
+  operations:
+  - get_job_v1_jobs__job_id__get
+  - get_job_content_v1_jobs__job_id__content_get
+- capability: Process API — synchronous image editing
+  operations:
+  - lucy_image_2_generate
+  - lucy_image_latest_generate
+- capability: Files API — reusable reference assets
+  operations:
+  - upload_file_v1_files_post
+  - get_file_metadata_v1_files__file_id__get
+  - delete_file_v1_files__file_id__delete
+- capability: Realtime session control
+  operations:
+  - create_client_token_v1_client_tokens_post
+  - get_realtime_quota_v1_realtime_quota_get
+- capability: Model alias resolution
+  operations:
+  - resolve_model_aliases
+coverage:
+  tools_named: 3
+  tools_bound_to_rest: 0
+  mcp_only: 3
+  rest_operations_total: 20
+  rest_operations_with_tool: 0
+  grpc_rpcs_total: 4
+  grpc_rpcs_with_tool: 0
+notes:
+- Every operationId listed in rest_only[] was verified verbatim against openapi/decart-platform-openapi-original.json.
+- No mapping rows were authored. Every tool was checked against both OpenAPI documents
+  by name and by semantics; none of the three has a backing REST operation, so crosswalk[]
+  is genuinely empty rather than unfilled.

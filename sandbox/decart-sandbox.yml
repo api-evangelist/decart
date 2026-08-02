@@ -1,0 +1,47 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/models/realtime/oasis-3 + https://docs.platform.decart.ai/changelog
+  + https://platform.decart.ai/
+description: 'Decart has no test/live key separation and publishes no magic test values
+  — there are no test cards, test identifiers, fixtures, or time-simulation tools,
+  because generation is the product and every call renders real media against real
+  GPU time. What it does publish is evaluation surface: free credits on every new
+  account, an interactive Realtime Playground in the platform console, and a fully
+  public in-browser demo of the Oasis 3 Preview world model that needs no account
+  at all.'
+test_live_separation:
+  modes: none
+  detail: There is one set of credentials. The only key distinction is permanent account
+    key (dct_) versus ephemeral client token (ek_), which is an exposure boundary,
+    not a test/live boundary.
+  key_prefixes:
+    account: dct_
+    client_token: ek_
+free_evaluation:
+  credits: New accounts receive free credits to test the API before paying.
+  amount: not published
+  source: https://docs.platform.decart.ai/getting-started/pricing
+consoles:
+- name: Realtime Playground
+  url: https://platform.decart.ai/models
+  authentication: account required
+  description: Interactive in-console surface for running realtime models against
+    a camera or uploaded media, with preset configuration, a model selector, session
+    recording, and idle detection. Renamed from "Studio" to "Models" in October 2025.
+  status: 200
+- name: Oasis 3 Preview live demo
+  url: https://oasis3-preview.decart.ai/
+  authentication: none
+  description: Fully public, playable in-browser build of the Oasis 3 Preview world
+    model. Drive the model live with no account and no setup. The documented way to
+    evaluate Oasis before installing the decart-oasis gRPC SDK.
+  status: 200
+test_values: []
+test_values_note: Decart publishes no magic test identifiers, sandbox card numbers,
+  fixture generators, or trigger tooling. Nothing was invented to fill this section.
+time_simulation:
+  supported: false
+mocking:
+  provider_hosted: false
+  note: No mock server is published. The two OpenAPI documents captured in openapi/
+    can be used to stand up a local mock.

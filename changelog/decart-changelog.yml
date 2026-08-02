@@ -1,0 +1,117 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/changelog
+description: Decart publishes a dated, month-grouped changelog on its documentation
+  host covering model launches, retirements, SDK releases and platform changes. Ten
+  months of history were present at capture (October 2025 through July 2026). Entries
+  are labelled by month rather than by API version — the REST surface has stayed on
+  /v1 while capability changes ship as new model ids.
+scheme: month-dated release notes
+api_version_current: v1
+model_generation_current: Lucy 2.5 / Lucy VTON 3 / Lucy Restyle 2 / Oasis 3 Preview
+window: 2025-10 to 2026-07
+entries:
+- label: July 2026
+  title: Lucy 2.5
+  additions:
+  - Lucy 2.5 (lucy-2.5), the latest-generation video editing model, on both realtime
+    and batch surfaces. Supports text prompts, reference images, or both.
+  breaking: []
+  notes:
+  - lucy-latest now resolves to lucy-2.5; lucy-2.1 remains live for pinned integrations.
+- label: June 2026
+  title: Oasis 3 Preview, Realtime Quality & Python LiveKit
+  additions:
+  - Oasis 3 Preview (oasis-3-preview), a realtime promptable world model driven over
+    gRPC, with the decart-oasis Python SDK and an RL training notebook.
+  - Lucy VTON 3 (lucy-vton-3) on realtime and batch; lucy-vton-latest now resolves
+    to it.
+  - Connection-quality reporting (good/fair/poor/critical), a checkConnectivity() preflight,
+    and opt-in glass-to-glass latency measurement across JavaScript, Android and Swift.
+  breaking:
+  - lucy-2.1-vton and its lucy-vton alias are no longer served. Migrate to lucy-vton-3
+    or pin lucy-vton-2.
+  - Python realtime SDK moved to LiveKit — input is now a livekit.rtc.LocalVideoTrack
+    and on_remote_stream receives a livekit.rtc.RemoteVideoTrack.
+- label: May 2026
+  title: 1080p Realtime & Mobile Mirroring
+  additions:
+  - resolution option on realtime.connect() for 1080p output on supported models (defaults
+    to 720p).
+  - Front-camera mirror option on iOS and Android.
+  - Lucy VTON 2 (lucy-vton-2) on realtime and batch.
+  - Origin-scoped client tokens via allowedOrigins.
+  - Files API for realtime reference images — upload once, pass the file_ id by reference.
+  - Enterprise SSO for organizations.
+  breaking:
+  - LipSync Live, Live Avatar, Lucy Motion, Lucy v1 Realtime and Lucy Restyle v1 Realtime
+    are no longer served. Migrate to lucy-2.1 or lucy-restyle-2.
+  - Realtime media transport moved to LiveKit in the JavaScript and Android SDKs; Android's
+    setPrompt is now a suspend function.
+- label: April 2026
+  title: Virtual Try-On, canonical model names and billing
+  additions:
+  - lucy-2.1-vton for realtime and batch virtual try-on, with an e-commerce integration
+    guide.
+  - '-latest rolling aliases (lucy-latest, lucy-vton-latest, lucy-restyle-latest, lucy-clip-latest,
+    lucy-image-latest).'
+  - reference_image support on lucy-image-2.
+  - Team accounts with shared credits, billing and org-scoped API keys.
+  - Auto top-up credits and a hosted Stripe billing portal.
+  - Formal API Terms of Service and Data Processing Addendum published.
+  breaking:
+  - Canonical SDK model names unified across all SDKs, with deprecation warnings emitted
+    for legacy names.
+- label: March 2026
+  title: Client Tokens v2, Android SDK & Model Simplification
+  additions:
+  - Client tokens v2 — configurable TTL, model scoping and per-session constraints.
+  - Android SDK published with realtime and batch APIs.
+  breaking:
+  - Mirage renamed to Lucy Restyle Live across docs, the platform and all SDKs.
+- label: February 2026
+  title: Realtime SDK Overhaul & Lucy 2
+  additions:
+  - Lucy 2 (lucy-2) realtime video-to-video with character reference images.
+  - Read-only session viewing via a subscribe token.
+  - Unified set() method for atomic session-state replacement.
+  - Auto-reconnect with exponential backoff; new "generating" and "reconnecting" states.
+  - generationTick event for session duration and billing tracking.
+  breaking: []
+- label: January 2026
+  title: Lucy 2 RT Preview, Reference Images & Avatar Live
+  additions:
+  - Lucy 2 RT preview at 720p/20FPS.
+  - Reference image support across Lucy Restyle Live, Lucy Restyle, Lucy Pro and Lucy
+    Edit.
+  - Avatar Live audio-driven avatar animation.
+  - Server proxy integration and a Next.js proxy adapter.
+  breaking:
+  - Python SDK now requires Python 3.10 or later.
+- label: December 2025
+  title: Lucy Restyle & Client Tokens
+  additions:
+  - Lucy Restyle (lucy-restyle-2) with up to 30-minute input.
+  - Client tokens API for short-lived client-side credentials.
+  breaking:
+  - All model generation consolidated into a single unified API route.
+- label: November 2025
+  title: Queue API & AWS Marketplace
+  additions:
+  - Queue-based API for long-running video generation jobs.
+  - AWS Marketplace listing with integrated billing.
+  - Lucy Edit Fast.
+  breaking: []
+- label: October 2025
+  title: Lip Syncing, Motion & Platform Redesign
+  additions:
+  - Realtime lip syncing and Lucy Motion.
+  - Lucy Restyle Live v2 as the default realtime model.
+  - Python SDK and Swift SDK documentation published.
+  breaking: []
+observations:
+- Model retirement is a recurring, announced event (May 2026 and June 2026 each retired
+  a named set of models with a stated migration target), but it is announced in the
+  changelog rather than governed by a published deprecation window or Sunset header.
+- The rolling -latest aliases are the provider's stated forward-compatibility mechanism;
+  pinning an explicit model id is the documented way to avoid being moved.

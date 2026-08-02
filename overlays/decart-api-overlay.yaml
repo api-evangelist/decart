@@ -1,0 +1,140 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Decart API
+  version: 1.0.0
+extends: openapi/decart-api-openapi-original.json
+x-generated: '2026-08-01'
+x-method: generated
+x-source: openapi/decart-api-openapi-original.json + https://docs.platform.decart.ai/
+x-note: >-
+  Captures API Evangelist enhancements over the spec Decart serves at
+  https://api.decart.ai/openapi.json. The original is never mutated. The spec is
+  FastAPI-generated: it declares no servers[], no components.securitySchemes, no
+  tags, and no top-level info.description, and it carries every model alias as a
+  separate path with a machine-generated operationId. These actions add the missing
+  document-level metadata and formalise the x-api-key authentication that the spec
+  expresses only as a repeated required header parameter.
+actions:
+- target: $.info
+  description: Add a document description and contact/licence metadata absent from
+    the generated spec.
+  update:
+    description: >-
+      The Decart REST API. Submit asynchronous video generation and editing jobs
+      against the Lucy model family and poll them to completion (Queue API),
+      edit images synchronously (Process API), upload and reuse reference assets
+      by file_ id (Files API), mint ephemeral client tokens for browser and
+      mobile realtime sessions, read realtime concurrency quota, and resolve
+      rolling model aliases to canonical model ids.
+    contact:
+      name: Decart Support
+      email: contact@decart.ai
+      url: https://docs.platform.decart.ai/
+    termsOfService: https://docs.platform.decart.ai/resources/api-terms
+    x-apievangelist-enriched: '2026-08-01'
+    x-apievangelist-documentation: https://docs.platform.decart.ai/
+- target: $
+  description: Add the production server, absent from the generated document.
+  update:
+    servers:
+    - url: https://api.decart.ai
+      description: Production
+- target: $
+  description: >-
+    Formalise the authentication the spec expresses only as a required x-api-key
+    header parameter on every operation. Decart accepts a permanent dct_ account
+    key or an ephemeral ek_ client token in the same header.
+  update:
+    components:
+      securitySchemes:
+        ApiKeyAuth:
+          type: apiKey
+          in: header
+          name: x-api-key
+          description: >-
+            Permanent account API key (dct_ prefix) created at
+            https://platform.decart.ai/api-keys, or an ephemeral client token
+            (ek_ prefix) minted server-side via POST /v1/client/tokens.
+    security:
+    - ApiKeyAuth: []
+- target: $
+  description: Declare the capability tags the generated spec omits entirely.
+  update:
+    tags:
+    - name: Queue
+      description: Asynchronous video generation and editing jobs.
+    - name: Process
+      description: Synchronous image editing.
+    - name: Files
+      description: Reusable uploaded reference assets.
+    - name: Realtime
+      description: Client tokens and concurrency quota for live WebRTC sessions.
+    - name: Models
+      description: Model alias resolution.
+- target: $.paths['/v1/jobs/{job_id}'].get
+  description: Tag the job-status operation and record the polling contract.
+  update:
+    tags: [Queue]
+    x-apievangelist-polling:
+      terminal_status: completed
+      note: >-
+        The 200 response is typed as an empty schema upstream, so the job object
+        shape is not machine-readable. Only `status` is documented in prose.
+- target: $.paths['/v1/jobs/{job_id}/content'].get
+  description: Tag the content-download operation.
+  update:
+    tags: [Queue]
+- target: $.paths['/v1/files'].post
+  description: Tag the file upload operation and record the TTL contract.
+  update:
+    tags: [Files]
+    x-apievangelist-ttl:
+      min_seconds: 60
+      max_seconds: 2592000
+      persistent: true
+      default: 24h
+- target: $.paths['/v1/files/{file_id}'].get
+  update:
+    tags: [Files]
+- target: $.paths['/v1/files/{file_id}'].delete
+  update:
+    tags: [Files]
+- target: $.paths['/v1/client/tokens'].post
+  description: Tag client-token minting and record its default lifetime.
+  update:
+    tags: [Realtime]
+    x-apievangelist-token:
+      prefix: ek_
+      default_ttl_seconds: 60
+      scoping: [allowedModels, allowedOrigins, constraints.realtime.maxSessionDuration]
+- target: $.paths['/v1/realtime/quota'].get
+  update:
+    tags: [Realtime]
+- target: $.paths['/v1/models/resolve'].post
+  description: Tag alias resolution and record the rolling aliases it resolves.
+  update:
+    tags: [Models]
+    x-apievangelist-aliases:
+    - lucy-latest
+    - lucy-vton-latest
+    - lucy-restyle-latest
+    - lucy-clip-latest
+    - lucy-image-latest
+- target: $.paths['/v1/jobs/lucy-2.5'].post
+  description: Tag the flagship video-editing submit operation and record its price.
+  update:
+    tags: [Queue]
+    x-apievangelist-pricing:
+      metric: generated second
+      resolution: 720p
+      price_usd: 0.04
+      source: https://docs.platform.decart.ai/getting-started/pricing
+- target: $.paths['/v1/generate/lucy-image-2'].post
+  description: Tag the synchronous image-editing operation and record its price.
+  update:
+    tags: [Process]
+    x-apievangelist-pricing:
+      metric: generation
+      price_usd_480p: 0.01
+      price_usd_720p: 0.02
+      source: https://docs.platform.decart.ai/getting-started/pricing

@@ -1,0 +1,75 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Decart
+providerId: decart
+generated: '2026-08-01'
+method: derived
+created: '2026-08-01'
+modified: '2026-08-01'
+tags:
+- Rate Limiting
+- Real Time
+- Artificial Intelligence
+description: 'Decart does not publish per-second request rate limits. The throttling
+  contract it does expose is a concurrency quota on realtime sessions, readable at
+  runtime through GET /v1/realtime/quota, which returns the account limit, the currently
+  active session count, and the remaining headroom. Client tokens can further constrain
+  a single session with constraints.realtime.maxSessionDuration, and uploaded files
+  carry a TTL. Values are account-specific and are not published as fixed numbers,
+  so this catalog records the mechanism rather than fabricated limits.'
+sources:
+- openapi/decart-api-openapi-original.json
+- https://docs.platform.decart.ai/getting-started/client-tokens
+- https://docs.platform.decart.ai/models/realtime/streaming-best-practices
+headers: {}
+responseCodes:
+  validation: 422
+  unauthenticated: 401
+  forbidden: 403
+runtime_quota_endpoint:
+  operationId: get_realtime_quota_v1_realtime_quota_get
+  path: /v1/realtime/quota
+  method: get
+  returns:
+    limit: Maximum concurrent realtime sessions for the account (nullable)
+    active: Currently active realtime sessions
+    remaining: Remaining concurrent realtime sessions
+limits:
+- name: Concurrent realtime sessions
+  scope: account
+  metric: concurrent_sessions
+  limit: -1
+  timeFrame: concurrent
+  note: Account-specific; not published as a fixed number. Read live from GET /v1/realtime/quota.
+- name: Client token allowedModels entries
+  scope: token
+  metric: models
+  limit: 20
+  timeFrame: request
+  note: A client token may name at most 20 allowed models.
+- name: Client token allowedOrigins entries
+  scope: token
+  metric: origins
+  limit: 20
+  timeFrame: request
+  note: A client token may name at most 20 allowed web origins.
+- name: Client token default lifetime
+  scope: token
+  metric: seconds
+  limit: 60
+  timeFrame: token
+  note: Default expiresIn when the caller does not set one. Configurable per token.
+- name: Uploaded file TTL
+  scope: file
+  metric: seconds
+  limit: 2592000
+  timeFrame: file
+  note: TTL range is 60 to 2,592,000 seconds, or "persistent" for no expiry. Platform
+    default when omitted is 24 hours.
+notes:
+- No 429 response is declared on any operation in either published OpenAPI document,
+  and no Retry-After or X-RateLimit-* header is documented. Recorded as absent rather
+  than assumed.
+- The API Terms of Service prohibit circumventing rate limits and quotas, confirming
+  they exist server-side even though the numbers are not published.

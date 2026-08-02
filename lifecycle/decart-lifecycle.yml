@@ -1,0 +1,67 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/changelog + https://status.decart.ai/ + openapi/decart-api-openapi-original.json
+description: 'Decart''s lifecycle contract is model-centric rather than API-version-centric.
+  The REST surface has stayed on /v1 throughout ten months of published history; what
+  moves is the model catalog. New generations ship as new model ids, rolling -latest
+  aliases are repointed, and superseded models are retired by announcement in the
+  monthly changelog with a named migration target. There is no published deprecation
+  window, no Sunset or Deprecation response header, and no SLA document.'
+versioning:
+  scheme: uri-path
+  current: v1
+  stability: /v1 unchanged across the Lucy 2 → 2.1 → 2.5 and VTON 2 → 3 generations
+  model_pinning:
+    aliases: [lucy-latest, lucy-vton-latest, lucy-restyle-latest, lucy-clip-latest,
+      lucy-image-latest]
+    resolve_endpoint: POST /v1/models/resolve
+    guidance: Pin an explicit model id for stable behaviour; -latest aliases are repointed
+      when a new generation ships.
+  docs: https://docs.platform.decart.ai/changelog
+deprecation:
+  policy_url: https://docs.platform.decart.ai/changelog
+  policy_published: false
+  mechanism: Announcement in the monthly changelog, with a stated replacement model
+  sunset_header: false
+  deprecation_header: false
+  notice_window: not published
+  observed_retirements:
+  - date: '2026-06'
+    retired: [lucy-2.1-vton, lucy-vton]
+    replacement: lucy-vton-3 (or pin lucy-vton-2)
+  - date: '2026-05'
+    retired: [LipSync Live, Live Avatar, Lucy Motion, Lucy v1 Realtime, Lucy Restyle
+        v1 Realtime]
+    replacement: lucy-2.1 for editing, lucy-restyle-2 for restyling
+  - date: '2026-04'
+    retired: legacy (non-canonical) SDK model names
+    replacement: canonical model names; SDKs emitted deprecation warnings during the
+      transition
+  detail: changelog/decart-changelog.yml
+deprecated_operations: []
+deprecated_operations_note: >-
+  Neither published OpenAPI document marks any operation with "deprecated: true".
+  Superseded model routes are removed outright rather than flagged in the spec — the
+  June 2026 retirement of lucy-2.1-vton removed the route, and the api.decart.ai spec
+  still carries a lucy-vton path family for the generations still served.
+status_page:
+  url: https://status.decart.ai/
+  provider: Atlassian Statuspage
+  api: https://status.decart.ai/api/v2/summary.json
+  subscriptions: email, Slack and webhook subscribers supported by the Statuspage host
+  docs_mirror: https://docs.platform.decart.ai/resources/status
+sla:
+  published: false
+  uptime_target: null
+  note: No service level agreement or uptime commitment is published on the docs host
+    or the status page.
+support:
+  contact: contact@decart.ai
+  enterprise: contact@decart.ai for volume and custom pricing
+legal:
+  terms_of_service: https://docs.platform.decart.ai/resources/terms-of-service
+  api_terms: https://docs.platform.decart.ai/resources/api-terms
+  acceptable_use: https://docs.platform.decart.ai/resources/aup
+  data_processing_addendum: https://docs.platform.decart.ai/resources/dpa
+  privacy_policy: https://docs.platform.decart.ai/resources/privacy-policy
+  published: '2026-04 (API Terms of Service and DPA, per the changelog)'

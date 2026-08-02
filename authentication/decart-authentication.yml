@@ -1,0 +1,82 @@
+generated: '2026-08-01'
+method: searched
+source: https://docs.platform.decart.ai/getting-started/authentication
+docs: https://docs.platform.decart.ai/getting-started/authentication
+also: https://docs.platform.decart.ai/getting-started/client-tokens
+description: 'Decart uses a two-tier API-key model. Server-side callers present a
+  permanent account key (dct_ prefix) in an x-api-key request header. Browser and
+  mobile clients never see that key: a backend mints a short-lived ephemeral client
+  token (ek_ prefix) through POST /v1/client/tokens, optionally scoped to a model
+  allow-list, an origin allow-list, and a maximum realtime session duration. There
+  is no OAuth 2.0, OIDC, or mTLS surface. The gRPC Oasis service carries the same
+  account key in its InitializeRequest message rather than an HTTP header.'
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+  openid_connect: false
+  mutual_tls: false
+  ephemeral_tokens: true
+schemes:
+- name: x-api-key
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  token_prefix: dct_
+  description: Permanent account API key created in the Decart platform console. Required
+    on every REST call. Declared as a required header parameter on each operation
+    rather than as an OpenAPI securityScheme.
+  scope: full account access
+  sources:
+  - openapi/decart-api-openapi-original.json
+  - https://docs.platform.decart.ai/getting-started/authentication
+- name: client-token
+  type: apiKey
+  in: header
+  parameter: x-api-key
+  token_prefix: ek_
+  description: Ephemeral client token minted server-side for browser and mobile realtime
+    sessions. Default TTL 60 seconds. Cannot be used to mint another client token
+    (HTTP 403).
+  minted_by: POST /v1/client/tokens (create_client_token_v1_client_tokens_post)
+  constraints:
+    expiresIn: Seconds until the token expires (default 60)
+    allowedModels: Restrict which models this token can access (max 20)
+    allowedOrigins: Restrict which web origins this token can be used from (max 20)
+    constraints.realtime.maxSessionDuration: Ceiling on a single realtime session,
+      in seconds
+  sources:
+  - openapi/decart-api-openapi-original.json
+  - https://docs.platform.decart.ai/getting-started/client-tokens
+- name: grpc-api-key
+  type: apiKey
+  in: message-field
+  parameter: InitializeRequest.api_key
+  description: The Oasis 3 Preview action-to-video gRPC service authenticates on the
+    Initialize call by carrying the account API key in the request message. An invalid
+    or missing key returns ERROR_CODE_INVALID_API_KEY.
+  sources:
+  - grpc/decart-a2v.proto
+  - https://docs.platform.decart.ai/models/realtime/oasis-3
+key_management:
+  console: https://platform.decart.ai/api-keys
+  environment_variable: DECART_API_KEY
+  rotation: Documented as a best practice; no published automated rotation endpoint.
+  separation: Docs advise separate keys for development and production.
+errors:
+- status: 401
+  meaning: No or invalid API key provided
+  operation: create_client_token_v1_client_tokens_post
+- status: 403
+  meaning: Cannot create client token from a client token
+  operation: create_client_token_v1_client_tokens_post
+notes:
+- Neither published OpenAPI document declares components.securitySchemes. Authentication
+  is expressed as a required `x-api-key` header parameter on each operation, so the
+  mechanical securityScheme derivation returns nothing; this profile is taken from
+  the documented auth pages and the operation parameters instead.
+- No OAuth 2.0 or OpenID Connect surface exists, so scopes/ is intentionally absent
+  rather than empty. Authorization granularity is expressed through client-token constraints
+  (allowedModels / allowedOrigins / maxSessionDuration), not through scopes.
+- Enterprise SSO for organizations is offered for platform console sign-in (May 2026
+  changelog); it governs dashboard access, not API request authentication.

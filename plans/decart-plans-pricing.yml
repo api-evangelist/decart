@@ -1,0 +1,161 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Decart
+providerId: decart
+generated: '2026-08-01'
+method: searched
+created: '2026-08-01'
+modified: '2026-08-01'
+tags:
+- Artificial Intelligence
+- Video Generation
+- Image Editing
+- Real Time
+description: Decart is priced pay-as-you-go with no subscriptions and no minimum spend.
+  Realtime models bill per second of active generation, video models bill per generated
+  second, and image models bill per generation. New accounts receive free credits.
+  Volume and enterprise pricing is negotiated directly.
+sources:
+- https://docs.platform.decart.ai/getting-started/pricing
+plans:
+- id: decart-free-credits
+  name: Free credits
+  type: free-trial
+  description: New accounts receive free credits to evaluate the API before paying.
+    The published pricing page does not state the credit amount.
+  entries: []
+- id: decart-realtime
+  name: Realtime models — pay as you go
+  type: usage-based
+  description: Billed per second of active realtime generation at 720p.
+  entries:
+  - label: Lucy 2.5 realtime (720p)
+    name: lucy-2.5
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.02
+  - label: Lucy VTON 3 realtime (720p)
+    name: lucy-vton-3
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.02
+  - label: Lucy Restyle 2 realtime (720p)
+    name: lucy-restyle-2
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.01
+  - label: Oasis 3 Preview realtime (720p)
+    name: oasis-3-preview
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.02
+  - label: Lucy 2.1 realtime (720p, previous generation)
+    name: lucy-2.1
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.02
+  - label: Lucy VTON 2 realtime (720p, previous generation)
+    name: lucy-vton-2
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.02
+- id: decart-video
+  name: Video models — pay as you go
+  type: usage-based
+  description: Batch video jobs billed per generated second at 720p.
+  entries:
+  - label: Lucy 2.5 video (720p)
+    name: lucy-2.5
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.04
+  - label: Lucy VTON 3 video (720p)
+    name: lucy-vton-3
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.04
+  - label: Lucy Restyle 2 video (720p)
+    name: lucy-restyle-2
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.01
+  - label: Lucy 2.1 video (720p, previous generation)
+    name: lucy-2.1
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.04
+  - label: Lucy Clip video (720p, previous generation)
+    name: lucy-clip
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.15
+  - label: Lucy VTON 2 video (720p, previous generation)
+    name: lucy-vton-2
+    type: metered
+    metric: second
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.04
+- id: decart-image
+  name: Image models — pay as you go
+  type: usage-based
+  description: Image editing billed per generation, priced by output resolution.
+  entries:
+  - label: Lucy Image 2 (480p)
+    name: lucy-image-2-480p
+    type: metered
+    metric: generation
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.01
+  - label: Lucy Image 2 (720p)
+    name: lucy-image-2-720p
+    type: metered
+    metric: generation
+    limit: -1
+    timeFrame: usage
+    unit: 1
+    price: $0.02
+- id: decart-enterprise
+  name: Enterprise
+  type: custom
+  description: Custom volume pricing negotiated directly. Oasis 3 Preview in particular
+    carries enterprise pricing depending on use case.
+  contact: contact@decart.ai
+  entries: []

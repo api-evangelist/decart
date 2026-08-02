@@ -1,0 +1,55 @@
+generated: '2026-08-01'
+method: searched
+source: live probes of /.well-known/* across every Decart host in apis.yml
+description: 'Discovery surface probe. Decart serves a single well-known document
+  family, and it is on the documentation host rather than the API host: an A2A agent
+  card plus the agent skill that card links to. No security.txt, no OAuth/OIDC discovery,
+  no api-catalog, and no ai-plugin.json exists on any host. Absence is recorded data,
+  not a gap in probing.'
+hosts_probed:
+- https://decart.ai
+- https://platform.decart.ai
+- https://api.decart.ai
+- https://docs.platform.decart.ai
+- https://mirage.decart.ai
+documents:
+- host: docs.platform.decart.ai
+  path: /.well-known/agent-card.json
+  status: 200
+  content_type: application/json
+  file: ../a2a/decart-agent-card.json
+  note: A2A Agent Card. Graded near-conformant; manifest at a2a/decart-a2a.yml.
+- host: docs.platform.decart.ai
+  path: /.well-known/agent-skills/decart/skill.md
+  status: 200
+  content_type: text/markdown
+  file: ../skills/decart-provider-skill.md
+  note: Provider-published Agent Skill, linked from the agent card's skills[0].url.
+    Saved verbatim.
+- host: docs.platform.decart.ai
+  path: /llms.txt
+  status: 200
+  content_type: text/plain
+  file: ../llms/decart-llms.txt
+  note: Not a /.well-known path, but the same discovery family. Saved verbatim.
+misses:
+- {path: /.well-known/agent.json, hosts: [decart.ai, platform.decart.ai, api.decart.ai,
+      docs.platform.decart.ai], status: 404}
+- {path: /.well-known/security.txt, hosts: [decart.ai, platform.decart.ai, api.decart.ai,
+      docs.platform.decart.ai], status: 404}
+- {path: /.well-known/openid-configuration, hosts: [decart.ai, platform.decart.ai,
+      api.decart.ai, docs.platform.decart.ai], status: 404}
+- {path: /.well-known/oauth-authorization-server, hosts: [decart.ai, platform.decart.ai,
+      api.decart.ai, docs.platform.decart.ai], status: 404}
+- {path: /.well-known/oauth-protected-resource, hosts: [decart.ai, platform.decart.ai,
+      api.decart.ai, docs.platform.decart.ai], status: 404}
+- {path: /.well-known/api-catalog, hosts: [decart.ai, platform.decart.ai, api.decart.ai,
+      docs.platform.decart.ai], status: 404}
+- {path: /.well-known/ai-plugin.json, hosts: [decart.ai, platform.decart.ai, api.decart.ai,
+      docs.platform.decart.ai], status: 404}
+- {host: mirage.decart.ai, status: dns-nxdomain, note: Host referenced in search results
+    but does not resolve; all probes returned no connection.}
+x-evidence:
+  fetched: '2026-08-01'
+  note: Every status above is an observed HTTP response code from a live probe on
+    2026-08-01. No status inferred.

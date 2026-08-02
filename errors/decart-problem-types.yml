@@ -1,0 +1,93 @@
+generated: '2026-08-01'
+method: derived
+source: openapi/decart-api-openapi-original.json + grpc/decart-common.proto + https://docs.platform.decart.ai/getting-started/authentication
+format: fastapi-validation-envelope
+rfc9457: false
+description: 'Decart''s REST error surface is the FastAPI default: a 422 Validation
+  Error carrying an HTTPValidationError envelope on every operation, plus 401/403
+  on client-token minting. No application/problem+json media type, no error type URIs,
+  and no numbered error-code registry are published. The gRPC Oasis service is the
+  richer surface: it defines an explicit ErrorCode enum returned inside a decart.inference.common.Error
+  message.'
+envelope:
+  rest:
+    media_type: application/json
+    schema: HTTPValidationError
+    shape:
+      detail:
+      - loc: array of string|integer — path to the offending field
+        msg: human-readable message
+        type: machine-readable error type string
+        input: the rejected input value
+        ctx: additional context object
+  grpc:
+    message: decart.inference.common.Error
+    shape:
+      code: ErrorCode enum value
+      message: human-readable message
+      details: map<string, string>
+problems:
+- status: 401
+  title: No or invalid API key provided
+  description: The x-api-key header was missing or did not match an active key.
+  source_operation: openapi/decart-api-openapi-original.json#create_client_token_v1_client_tokens_post
+  remediation: Create a key at https://platform.decart.ai/api-keys and send it as
+    the x-api-key header.
+- status: 403
+  title: Cannot create client token from a client token
+  description: Client-token minting was attempted using an ephemeral ek_ token rather
+    than a permanent dct_ account key.
+  source_operation: openapi/decart-api-openapi-original.json#create_client_token_v1_client_tokens_post
+  remediation: Mint client tokens server-side with the permanent account key. Ephemeral
+    tokens cannot mint further tokens.
+- status: 422
+  title: Validation Error
+  description: Request body or parameters failed schema validation. Returned by every
+    operation in both published specs (55 of 55 in the API-host spec, 20 of 20 in
+    the curated spec).
+  schema: HTTPValidationError
+  source_operation: openapi/decart-api-openapi-original.json (all operations)
+  remediation: Read detail[].loc to find the offending field and detail[].type for
+    the validation rule that failed.
+grpc_error_codes:
+- code: ERROR_CODE_UNSPECIFIED
+  value: 0
+- code: ERROR_CODE_INVALID_SESSION
+  value: 1
+  meaning: session_id not found or expired
+  class: lifecycle
+- code: ERROR_CODE_ALREADY_FINISHED
+  value: 2
+  meaning: Session already finished
+  class: lifecycle
+- code: ERROR_CODE_INVALID_REQUEST
+  value: 3
+  class: validation
+- code: ERROR_CODE_INVALID_MODEL
+  value: 4
+  class: validation
+- code: ERROR_CODE_INVALID_FORMAT
+  value: 5
+  class: validation
+- code: ERROR_CODE_INVALID_ENVIRONMENTS
+  value: 6
+  class: validation
+- code: ERROR_CODE_PROMPT_SET
+  value: 7
+  class: prompt
+- code: ERROR_CODE_UNSUPPORTED_SDK_VERSION
+  value: 8
+  meaning: Client SDK version not supported by the server
+  class: compatibility
+- code: ERROR_CODE_INVALID_API_KEY
+  value: 9
+  meaning: API key missing or invalid
+  class: authentication
+gaps:
+- No 429 / rate-limit error is declared on any operation.
+- No 5xx responses are declared on any operation.
+- Job failure is signalled through the job status field returned by get_job_v1_jobs__job_id__get
+  rather than through an HTTP error; the published spec types that response as an
+  empty schema, so failure reason codes are not machine-readable from the contract.
+- No documented error-code reference page exists on the docs host; the gRPC ErrorCode
+  enum is the only enumerated registry Decart publishes.

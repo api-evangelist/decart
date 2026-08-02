@@ -1,0 +1,64 @@
+generated: '2026-08-01'
+method: probed
+source: https://docs.platform.decart.ai/.well-known/agent-card.json
+description: 'A2A Agent Card observed at /.well-known/agent-card.json on docs.platform.decart.ai.
+  Grade is measured against the A2A 1.0.0 AgentCard object: ''conformant'' passes every
+  structural check, ''near-conformant'' is correctly shaped but omits optional fields
+  or carries a non-standard member, ''flavored'' fails a hard check and is an agent
+  card in spirit rather than in schema. Provider-published by construction — served
+  from Decart''s own documentation host; nothing here is derived or generated.'
+discovery:
+  path: /.well-known/agent-card.json
+  canonical: true
+  host: docs.platform.decart.ai
+  probed_hosts:
+  - {host: decart.ai, agent_card_json: 404, agent_json: 404}
+  - {host: platform.decart.ai, agent_card_json: 404, agent_json: 404}
+  - {host: api.decart.ai, agent_card_json: 404, agent_json: 404}
+  - {host: docs.platform.decart.ai, agent_card_json: 200, agent_json: 404}
+conformance:
+  spec: A2A 1.0.0
+  grade: near-conformant
+  protocol_version: '0.3'
+  preferred_transport: HTTP+JSON
+  hard_checks:
+    capabilities_is_object: true
+    protocol_version_present: true
+    skills_is_array: true
+  deviations:
+  - nonstandard-supportedInterfaces
+card:
+  name: Decart API Platform
+  description: Learn how to integrate Decart AI Lab's real-time visual models. Access
+    our API overview to start transforming video and images with state-of-the-art
+    efficiency
+  url: https://docs.platform.decart.ai/
+  version: 1.0.0
+  documentation_url: https://docs.platform.decart.ai/
+  provider: Decart API Platform
+  capabilities:
+    streaming: false
+    pushNotifications: false
+  default_input_modes: [text/plain]
+  default_output_modes: [text/plain]
+  skills: 1
+  file: decart-agent-card.json
+skills:
+- id: decart
+  name: decart
+  url: https://docs.platform.decart.ai/.well-known/agent-skills/decart/skill.md
+  description: Use when building with Decart for realtime video transformation, video
+    generation or editing, and image generation or editing.
+  local_copy: skills/decart-provider-skill.md
+notes:
+- The card advertises a linked Agent Skill served from the same host at /.well-known/agent-skills/decart/skill.md;
+  that document was fetched (HTTP 200, text/markdown) and saved verbatim to skills/decart-provider-skill.md.
+- The card uses `supportedInterfaces`, the pre-1.0 member name; A2A 1.0.0 names this
+  `additionalInterfaces`. All three hard structural checks pass, so the grade is near-conformant
+  rather than flavored.
+x-evidence:
+  fetched: '2026-08-01'
+  url: https://docs.platform.decart.ai/.well-known/agent-card.json
+  http_status: 200
+  content_type: application/json
+  note: Verbatim body saved alongside this manifest. No field inferred.
