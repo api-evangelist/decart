@@ -2,12 +2,10 @@ generated: '2026-08-01'
 method: searched
 status: published
 source: https://docs.platform.decart.ai/mcp
-description: 'Decart publishes a hosted, remote MCP server on its documentation host.
-  It is a documentation-knowledge server, not a wrapper over the Decart REST API:
-  its three tools search and query the Decart API Platform docs and OpenAPI specs
-  and submit docs feedback. None of the tools call api.decart.ai, so an agent can
-  learn how to use Decart through MCP but must still call the REST API directly to
-  generate or edit media.'
+description: 'Decart publishes a hosted, remote MCP server on its documentation host. It is a documentation-knowledge
+  server, not a wrapper over the Decart REST API: its three tools search and query the Decart API Platform
+  docs and OpenAPI specs and submit docs feedback. None of the tools call api.decart.ai, so an agent can
+  learn how to use Decart through MCP but must still call the REST API directly to generate or edit media.'
 server:
   name: decart-api-platform-docs
   transport: http
@@ -19,33 +17,56 @@ tools_manifest: mcp/decart-mcp-tools.json
 tools:
 - name: search_decart_api_platform
   title: Search documentation
-  description: Search across the Decart API Platform knowledge base to find relevant
-    information, code examples, API references, and guides.
+  description: Search across the Decart API Platform knowledge base to find relevant information, code
+    examples, API references, and guides.
   input_schema:
-    query: {type: string, required: true}
+    query:
+      type: string
+      required: true
 - name: query_docs_filesystem_decart_api_platform
-  description: Run a read-only shell-like query against a virtualized, in-memory filesystem
-    rooted at / that contains only the Decart API Platform documentation pages and
-    OpenAPI specs.
+  description: Run a read-only shell-like query against a virtualized, in-memory filesystem rooted at
+    / that contains only the Decart API Platform documentation pages and OpenAPI specs.
   input_schema:
-    command: {type: string, required: true}
+    command:
+      type: string
+      required: true
 - name: submit_feedback
   title: Submit documentation feedback
-  description: Report a problem with this documentation site so the docs team can
-    fix it.
+  description: Report a problem with this documentation site so the docs team can fix it.
   input_schema:
-    path: {type: string, required: true}
-    feedback: {type: string, required: true}
+    path:
+      type: string
+      required: true
+    feedback:
+      type: string
+      required: true
 discovery:
   probed:
-  - {url: 'https://docs.platform.decart.ai/mcp', method: tools/list, status: 200, result: 3 tools returned}
-  - {url: 'https://api.decart.ai/mcp', method: tools/list, status: 404}
-  - {url: 'https://platform.decart.ai/mcp', method: tools/list, status: 200, result: HTML application shell — not MCP}
-  - {url: 'https://mcp.decart.ai', method: tools/list, status: null, result: DNS does not resolve}
+  - url: https://docs.platform.decart.ai/mcp
+    method: tools/list
+    status: 200
+    result: 3 tools returned
+  - url: https://api.decart.ai/mcp
+    method: tools/list
+    status: 404
+  - url: https://platform.decart.ai/mcp
+    method: tools/list
+    status: 200
+    result: HTML application shell — not MCP
+  - url: https://mcp.decart.ai
+    method: tools/list
+    status: null
+    result: DNS does not resolve
 x-evidence:
   fetched: '2026-08-01'
   url: https://docs.platform.decart.ai/mcp
   http_status: 200
   content_type: text/event-stream
-  note: Tool names, titles, descriptions and inputSchemas taken verbatim from the
-    live tools/list response saved at mcp/decart-mcp-tools.json. Nothing inferred.
+  note: Tool names, titles, descriptions and inputSchemas taken verbatim from the live tools/list response
+    saved at mcp/decart-mcp-tools.json. Nothing inferred.
+deployment:
+  mode: remote
+  verified: searched
+  tools: 3
+  checked: '2026-08-12'
+  source: catalog MCP census

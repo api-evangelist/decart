@@ -1,0 +1,5051 @@
+{
+  "item": [
+    {
+      "id": "a2d89a48-11b1-40ec-a53c-f75a85841056",
+      "name": "Lucy Image 2",
+      "request": {
+        "name": "Lucy Image 2",
+        "description": {
+          "content": "Edit image from image using Lucy Image 2 model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "generate",
+            "lucy-image-2"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "image/png"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) Text prompt for the image generation"
+            },
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Image file to process"
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image file (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the image generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the image generation (This can only be one of 720p,480p)"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8c2f5f14-4a3a-4ec2-8e45-6643902df6ae",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "generate",
+                "lucy-image-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Image file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the image generation (This can only be one of 720p,480p)",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "image/png"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "5e3f68f9-48fd-480b-81ee-aaa5cdadea6b",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "generate",
+                "lucy-image-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Image file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the image generation (This can only be one of 720p,480p)",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a64c75fd-e278-4bd1-88e8-45e4e6e782df",
+      "name": "Lucy Clip",
+      "request": {
+        "name": "Lucy Clip",
+        "description": {
+          "content": "Edit video using Lucy Clip with prompt enhancement.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-clip"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) Text prompt for the video editing"
+            },
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image file (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8b509b74-0dca-454e-9895-53647591eebf",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-clip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the video editing",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "ff10289f-042f-40f8-9661-18e855739328",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-clip"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the video editing",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "3e53aa37-5708-4e8e-b37c-acb9aadd6faf",
+      "name": "Lucy Restyle 2",
+      "request": {
+        "name": "Lucy Restyle 2",
+        "description": {
+          "content": "Restyle video using Lucy Restyle 2 model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-restyle-2"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "Text prompt for the video editing (optional)"
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image file to process (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "251042b6-8dc2-4cf1-9762-91c20939ce5d",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-restyle-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt for the video editing (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file to process (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "14c8caa1-b691-4107-9718-f7c31737295a",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-restyle-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt for the video editing (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file to process (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "b3aea802-b0d1-4954-b4e5-bbe38d66a316",
+      "name": "Lucy 2.5",
+      "request": {
+        "name": "Lucy 2.5",
+        "description": {
+          "content": "Edit video using Lucy 2.5 model with optional prompt and reference image. Supports self-anchoring (on by default).",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-2.5"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "",
+              "type": "text",
+              "description": "Text prompt. Defaults to an empty string."
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            },
+            {
+              "key": "self_anchor",
+              "value": "true",
+              "type": "text",
+              "description": "Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on."
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "9a2238dd-c5cc-4ddd-82cb-e140c6b323d1",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-2.5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.",
+                    "type": "text/plain"
+                  },
+                  "key": "self_anchor",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "0f51740b-c871-446b-89e9-018b16cab034",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-2.5"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.",
+                    "type": "text/plain"
+                  },
+                  "key": "self_anchor",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7ab6c98d-2838-4d38-9d13-cc3f41d9cbce",
+      "name": "Lucy 2.1",
+      "request": {
+        "name": "Lucy 2.1",
+        "description": {
+          "content": "Edit video using Lucy 2.1 model with optional prompt and reference image.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-2.1"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "",
+              "type": "text",
+              "description": "Text prompt. Defaults to an empty string."
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "76d01c44-b8fd-49c2-b8c1-15ad106be32a",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-2.1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "3acdbebb-0725-45a6-bf61-5495227621d8",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-2.1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "1bb2608b-5b5b-456d-ad9a-6a1c3c9668c7",
+      "name": "Lucy VTON 3",
+      "request": {
+        "name": "Lucy VTON 3",
+        "description": {
+          "content": "Edit video with virtual try-on using the Lucy VTON 3 model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-vton-3"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "",
+              "type": "text",
+              "description": "Text prompt. Defaults to an empty string."
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "404176e6-4e59-47c2-bc5a-618095b0c689",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-vton-3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "abe9047e-d75d-40a0-95de-9b35daf12d67",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-vton-3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "059853b7-cece-4613-a923-67c07e78ce49",
+      "name": "Lucy VTON 2",
+      "request": {
+        "name": "Lucy VTON 2",
+        "description": {
+          "content": "Edit video with virtual try-on using the Lucy VTON 2 model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-vton-2"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "",
+              "type": "text",
+              "description": "Text prompt. Defaults to an empty string."
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "8b31db9c-1655-4c45-96d2-b3a4763f6239",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-vton-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "3d9a9d76-dca3-4799-9a2c-6499d2ea1b7c",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-vton-2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2c9e3c90-ae53-4759-a84a-fdc9134ccf4a",
+      "name": "Get Job",
+      "request": {
+        "name": "Get Job",
+        "description": {
+          "content": "Get the status and metadata of a job by its ID. Poll this endpoint to check if your job has completed.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            ":job_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "job_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "2dae9eb7-6d30-4745-95d8-6bdd5af2aeea",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                ":job_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "job_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6cb22075-6f7d-4d6a-ac0d-31cb982b3db7",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                ":job_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "job_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "e2bec8df-1e76-4610-a02e-0a7c8211dcc7",
+      "name": "Get Job Content",
+      "request": {
+        "name": "Get Job Content",
+        "description": {
+          "content": "Download the result of a completed job.\n\nReturns:\n    Binary content (image/video) or error if not ready/not found",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            ":job_id",
+            "content"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "job_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "b4479c54-b971-435f-bf2d-9e104ddd93d4",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                ":job_id",
+                "content"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "job_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "08064b73-4ee0-47e1-aa4e-8a89ac8fc796",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                ":job_id",
+                "content"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "job_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "76f3ba6b-2b53-4c93-bdfd-56aff82211c6",
+      "name": "Upload File",
+      "request": {
+        "name": "Upload File",
+        "description": {
+          "content": "Upload a file once and get back a `file_*` reference id you can reuse across generations.\n\nThe same reference can be passed to realtime `set_image` as `image_ref`, avoiding a re-upload of the underlying bytes on every call.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "files"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "description": "(Required) File to upload"
+            },
+            {
+              "key": "ttl_seconds",
+              "value": "<string>",
+              "type": "text",
+              "description": "TTL in seconds (60..2_592_000), or \"persistent\" for no expiry. Omit for the platform default (24h)."
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "6a751905-acea-4fd8-b58b-b042da07f661",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) File to upload",
+                    "type": "text/plain"
+                  },
+                  "key": "file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "TTL in seconds (60..2_592_000), or \"persistent\" for no expiry. Omit for the platform default (24h).",
+                    "type": "text/plain"
+                  },
+                  "key": "ttl_seconds",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"filename\": \"string\",\n  \"mime_type\": \"string\",\n  \"size_bytes\": 3902,\n  \"created_at\": \"1971-04-07T18:08:28.191Z\",\n  \"expires_at\": \"1983-10-06T06:42:32.521Z\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e0788d1f-a319-43b4-b45b-33f34b7dd213",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "files"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) File to upload",
+                    "type": "text/plain"
+                  },
+                  "key": "file",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "TTL in seconds (60..2_592_000), or \"persistent\" for no expiry. Omit for the platform default (24h).",
+                    "type": "text/plain"
+                  },
+                  "key": "ttl_seconds",
+                  "value": "<string>",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "36fab8da-287f-4903-8052-406ae8c770df",
+      "name": "Get File Metadata",
+      "request": {
+        "name": "Get File Metadata",
+        "description": {
+          "content": "Get metadata for an uploaded file.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "files",
+            ":file_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "file_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "19d4b156-59b3-4ed3-9285-38bb7bfb11ef",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "files",
+                ":file_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"id\": \"string\",\n  \"filename\": \"string\",\n  \"mime_type\": \"string\",\n  \"size_bytes\": 3902,\n  \"created_at\": \"1971-04-07T18:08:28.191Z\",\n  \"expires_at\": \"1983-10-06T06:42:32.521Z\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "6a0e0089-957f-4dee-99e8-c37b1599f7e0",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "files",
+                ":file_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d4b50b07-4c6f-4c2d-8092-32e31ae87f1c",
+      "name": "Delete File",
+      "request": {
+        "name": "Delete File",
+        "description": {
+          "content": "Delete an uploaded file early, before its TTL expires.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "files",
+            ":file_id"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "disabled": false,
+              "type": "any",
+              "value": "<string>",
+              "key": "file_id",
+              "description": "(Required) "
+            }
+          ]
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "DELETE",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "9c70f2bf-d536-4e3d-b2b7-d5ad6a82322b",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "files",
+                ":file_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "No Content",
+          "code": 204,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "4e4a22d1-7401-4d66-b212-73a5f8d653bd",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "files",
+                ":file_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "file_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {}
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "ae164e9e-55ee-47da-b969-b61421356f35",
+      "name": "Create Client Token",
+      "request": {
+        "name": "Create Client Token",
+        "description": {
+          "content": "Create an ephemeral API token for client sessions.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "client",
+            "tokens"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"expiresIn\": \"<integer>\",\n  \"allowedModels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"allowedOrigins\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"constraints\": {\n    \"realtime\": {\n      \"maxSessionDuration\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"metadata\": {\n    \"key_0\": 2267\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "9b1f6b2c-6b44-4c91-8dce-7ae7b63268d7",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expiresIn\": 4139,\n  \"allowedModels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"allowedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"constraints\": {\n    \"realtime\": {\n      \"maxSessionDuration\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": 336\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"apiKey\": \"string\",\n  \"expiresAt\": \"string\",\n  \"permissions\": {\n    \"key_0\": \"string\"\n  },\n  \"constraints\": {\n    \"key_0\": 3754.6333177172073\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "7299779d-0747-4a6b-a728-4e99e48ea283",
+          "name": "No or invalid API key provided",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expiresIn\": 4139,\n  \"allowedModels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"allowedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"constraints\": {\n    \"realtime\": {\n      \"maxSessionDuration\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": 336\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "ec61810d-ae7d-4fa8-bd4e-e62e8d64d4db",
+          "name": "Cannot create client token from a client token",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expiresIn\": 4139,\n  \"allowedModels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"allowedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"constraints\": {\n    \"realtime\": {\n      \"maxSessionDuration\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": 336\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "b7996934-3b9e-489c-bdf5-7bb3bdefaa6c",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "client",
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"expiresIn\": 4139,\n  \"allowedModels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"allowedOrigins\": [\n    \"string\",\n    \"string\"\n  ],\n  \"constraints\": {\n    \"realtime\": {\n      \"maxSessionDuration\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  },\n  \"metadata\": {\n    \"key_0\": \"string\",\n    \"key_1\": 336\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "17c1e240-2441-4af2-be02-51392a34954d",
+      "name": "Lucy Latest",
+      "request": {
+        "name": "Lucy Latest",
+        "description": {
+          "content": "Edit video using the latest Lucy video model with optional prompt and reference image.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-latest"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "",
+              "type": "text",
+              "description": "Text prompt. Defaults to an empty string."
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "a925d1b5-345b-42d9-be19-b1bdd75afac8",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "86421604-2f43-4fbe-a1ba-c152174f6392",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "513ace91-dce8-4259-9441-dc1de4afc2b3",
+      "name": "Lucy VTON Latest",
+      "request": {
+        "name": "Lucy VTON Latest",
+        "description": {
+          "content": "Edit video with virtual try-on using the latest Lucy VTON model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-vton-latest"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "",
+              "type": "text",
+              "description": "Text prompt. Defaults to an empty string."
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "78afa603-952b-4b9a-a2a3-43f366123d7f",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-vton-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "05fae697-11bb-4d02-a33e-a13bed2f9da0",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-vton-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt. Defaults to an empty string.",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "0a170156-3b59-4110-8f81-9136315df683",
+      "name": "Lucy Restyle Latest",
+      "request": {
+        "name": "Lucy Restyle Latest",
+        "description": {
+          "content": "Restyle video using the latest Lucy Restyle model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-restyle-latest"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "Text prompt for the video editing (optional)"
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image file to process (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "a2766686-e1e7-48d1-81f1-c8d707d4630f",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-restyle-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt for the video editing (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file to process (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "17aece56-ac2a-4722-a6cd-69e823614fc0",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-restyle-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Text prompt for the video editing (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file to process (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4246b465-c323-4e81-bd64-f59f13e92ffa",
+      "name": "Lucy Clip Latest",
+      "request": {
+        "name": "Lucy Clip Latest",
+        "description": {
+          "content": "Edit video using the latest Lucy Clip model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "jobs",
+            "lucy-clip-latest"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) Text prompt for the video editing"
+            },
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Video file to process"
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image file (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the video generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "24d604d3-91eb-47f4-b300-1c1bab034eb9",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-clip-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the video editing",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "e486e9f4-7a81-455b-baa4-6e888174628a",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "jobs",
+                "lucy-clip-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the video editing",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Video file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the video generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "fb1c0e79-dde9-4c19-9941-1d53e031a19a",
+      "name": "Lucy Image Latest",
+      "request": {
+        "name": "Lucy Image Latest",
+        "description": {
+          "content": "Edit image from image using the latest Lucy Image model.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "generate",
+            "lucy-image-latest"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "disabled": false,
+            "key": "User-Agent",
+            "value": "<string>",
+            "description": ""
+          },
+          {
+            "key": "Content-Type",
+            "value": "multipart/form-data"
+          },
+          {
+            "key": "Accept",
+            "value": "image/png"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "prompt",
+              "value": "<string>",
+              "type": "text",
+              "description": "(Required) Text prompt for the image generation"
+            },
+            {
+              "key": "data",
+              "type": "file",
+              "description": "(Required) Image file to process"
+            },
+            {
+              "key": "reference_image",
+              "value": "<binary>",
+              "type": "text",
+              "description": "Reference image file (optional)"
+            },
+            {
+              "key": "seed",
+              "value": "<integer>",
+              "type": "text",
+              "description": "Seed for the image generation"
+            },
+            {
+              "key": "resolution",
+              "value": "720p",
+              "type": "text",
+              "description": "Resolution of the video generation (This can only be one of 720p,480p)"
+            },
+            {
+              "key": "enhance_prompt",
+              "value": "true",
+              "type": "text",
+              "description": "Whether to enhance the prompt"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "2803efea-607d-4ebd-9272-6a8592425a6d",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "generate",
+                "lucy-image-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Image file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video generation (This can only be one of 720p,480p)",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "image/png"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "5e21eaa7-6586-4835-8994-a6ca85279d6b",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "generate",
+                "lucy-image-latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "disabled": false,
+                "key": "User-Agent",
+                "value": "<string>",
+                "description": ""
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "description": {
+                    "content": "(Required) Text prompt for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "prompt",
+                  "value": "<string>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "(Required) Image file to process",
+                    "type": "text/plain"
+                  },
+                  "key": "data",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Reference image file (optional)",
+                    "type": "text/plain"
+                  },
+                  "key": "reference_image",
+                  "value": "<binary>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Seed for the image generation",
+                    "type": "text/plain"
+                  },
+                  "key": "seed",
+                  "value": "<integer>",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Resolution of the video generation (This can only be one of 720p,480p)",
+                    "type": "text/plain"
+                  },
+                  "key": "resolution",
+                  "value": "720p",
+                  "type": "text"
+                },
+                {
+                  "description": {
+                    "content": "Whether to enhance the prompt",
+                    "type": "text/plain"
+                  },
+                  "key": "enhance_prompt",
+                  "value": "true",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "a52a5e0f-cc32-46b7-9791-70395e4364a7",
+      "name": "Resolve Model Aliases",
+      "request": {
+        "name": "Resolve Model Aliases",
+        "description": {
+          "content": "Resolve one or more public model names/aliases to canonical model ids.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "models",
+            "resolve"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"model\": \"<string>\",\n  \"models\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "81070b09-c99e-41db-b3e5-f8f601e8dacf",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "models",
+                "resolve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"models\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"model_id\": \"string\",\n  \"model_ids\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "344b19d6-bedd-491e-b9d2-f96f451da339",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "models",
+                "resolve"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"model\": \"<string>\",\n  \"models\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "70229aaf-6909-4b74-ae3a-0fbca3ab12f9",
+      "name": "Get Realtime Quota",
+      "request": {
+        "name": "Get Realtime Quota",
+        "description": {
+          "content": "Current concurrent realtime session quota state for the authenticated account.\n\nFor org-scoped keys the count is org-wide (shared across the org's keys/users).",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "realtime",
+            "quota"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "disabled": false,
+            "description": "(Required) API key for authentication",
+            "key": "x-api-key",
+            "value": "<string>"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "8064849c-97f0-4918-839e-1684bf90bb07",
+          "name": "Successful Response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "realtime",
+                "quota"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"limit\": 8742,\n  \"active\": 29,\n  \"remaining\": 5406\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "c86baf82-16c3-476f-839a-3c6a59bf315a",
+          "name": "Validation Error",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "realtime",
+                "quota"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API key for authentication",
+                "key": "x-api-key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+          "code": 422,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b07e9a20-0550-4895-908d-0ecacca9b71b",
+    "name": "Decart API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

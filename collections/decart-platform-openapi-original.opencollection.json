@@ -1,0 +1,478 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decart API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lucy Image 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/generate/lucy-image-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit image from image using Lucy Image 2 model."
+    },
+    {
+      "info": {
+        "name": "Lucy Clip",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-clip",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video using Lucy Clip with prompt enhancement."
+    },
+    {
+      "info": {
+        "name": "Lucy Restyle 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-restyle-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Restyle video using Lucy Restyle 2 model."
+    },
+    {
+      "info": {
+        "name": "Lucy 2.5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.5",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video using Lucy 2.5 model with optional prompt and reference image. Supports self-anchoring (on by default)."
+    },
+    {
+      "info": {
+        "name": "Lucy 2.1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.1",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video using Lucy 2.1 model with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Lucy VTON 3",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video with virtual try-on using the Lucy VTON 3 model."
+    },
+    {
+      "info": {
+        "name": "Lucy VTON 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video with virtual try-on using the Lucy VTON 2 model."
+    },
+    {
+      "info": {
+        "name": "Get Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/jobs/:job_id",
+        "params": [
+          {
+            "name": "job_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get the status and metadata of a job by its ID. Poll this endpoint to check if your job has completed."
+    },
+    {
+      "info": {
+        "name": "Get Job Content",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/jobs/:job_id/content",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "job_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Download the result of a completed job.\n\nReturns:\n    Binary content (image/video) or error if not ready/not found"
+    },
+    {
+      "info": {
+        "name": "Upload File",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/files",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Upload a file once and get back a `file_*` reference id you can reuse across generations.\n\nThe same reference can be passed to realtime `set_image` as `image_ref`, avoiding a re-upload of the underlying bytes on every call."
+    },
+    {
+      "info": {
+        "name": "Get File Metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/files/:file_id",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "file_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get metadata for an uploaded file."
+    },
+    {
+      "info": {
+        "name": "Delete File",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/v1/files/:file_id",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "file_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete an uploaded file early, before its TTL expires."
+    },
+    {
+      "info": {
+        "name": "Create Client Token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/client/tokens",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create an ephemeral API token for client sessions."
+    },
+    {
+      "info": {
+        "name": "Lucy Latest",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video using the latest Lucy video model with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Lucy VTON Latest",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video with virtual try-on using the latest Lucy VTON model."
+    },
+    {
+      "info": {
+        "name": "Lucy Restyle Latest",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-restyle-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Restyle video using the latest Lucy Restyle model."
+    },
+    {
+      "info": {
+        "name": "Lucy Clip Latest",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-clip-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit video using the latest Lucy Clip model."
+    },
+    {
+      "info": {
+        "name": "Lucy Image Latest",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/generate/lucy-image-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Edit image from image using the latest Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Resolve Model Aliases",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/models/resolve",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Resolve one or more public model names/aliases to canonical model ids."
+    },
+    {
+      "info": {
+        "name": "Get Realtime Quota",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/realtime/quota",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Current concurrent realtime session quota state for the authenticated account.\n\nFor org-scoped keys the count is org-wide (shared across the org's keys/users)."
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,1344 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Decart API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generate Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/generate/lucy-image-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Generate Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/generate/lucy-pro-i2i",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Generate Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/generate/lucy_pro_i2i",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Generate Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/generate/lucy-image-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Watch Stream",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/watch-stream/:room_id",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "room_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Issue LiveKit viewer credentials for the given room."
+    },
+    {
+      "info": {
+        "name": "Verify Content",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/verify",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Check whether a video or image carries the Decart invisible provenance\nwatermark. Returns a detection verdict with confidence; the watermark\nsurvives re-encoding and format conversion.\n\nAUTHED (API key), like every other /v1 endpoint. A public no-auth tier is\na conditional follow-up: SB 942 requires a free public detection tool of\nCOVERED providers only — if legal rules we're covered, drop the two auth\nlines below and add per-IP limit_req at external-nginx (both regions)\nbefore exposure. The har"
+    },
+    {
+      "info": {
+        "name": "Upload File",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/files",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Upload a file once, get back a `file_*` reference id to reuse across generations.\n\nThe same reference can be used in realtime `set_image { image_ref }` and (after PR2)\nin batch/queue endpoints via `data_ref` / `reference_image_ref` Form fields."
+    },
+    {
+      "info": {
+        "name": "Get File Metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/files/:file_id",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "file_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get metadata for an uploaded file."
+    },
+    {
+      "info": {
+        "name": "Delete File",
+        "type": "http"
+      },
+      "http": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/v1/files/:file_id",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "file_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Delete an uploaded file early (before TTL)."
+    },
+    {
+      "info": {
+        "name": "Get Realtime Quota",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/realtime/quota",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ]
+      },
+      "docs": "Current concurrent realtime session quota state for the authenticated account.\n\nFor org-scoped keys the count is org-wide (shared across the org's keys/users)."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Clip",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-clip",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Clip."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Clip",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-pro-v2v",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Clip."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Clip",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-clip-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Clip."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Restyle 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-restyle-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Pro model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Restyle 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/mirage_v2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Pro model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Restyle 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-restyle-v2v",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Pro model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Restyle 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-restyle-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video using Lucy Pro model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Robot 720P",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-robot-720p",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video with the lucy-robot-720p long-form model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Robot 720P",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-samsung-robot-poc",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video with the lucy-robot-720p long-form model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Robot 720P",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-solomon-robot-poc",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Edit video with the lucy-robot-720p long-form model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.5",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.5 with first-frame prompt enhancement."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2-5",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.5 with first-frame prompt enhancement."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_2_5",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.5 with first-frame prompt enhancement."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.5 with first-frame prompt enhancement."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.1",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_2_rt_preview",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_2_rt",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2-v2v",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_2_v2v",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy 2 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_v2v_14b_rt",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video using Lucy 2.1 with optional prompt and reference image."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.1-vton",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy 2.1 VTON model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.viton",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy 2.1 VTON model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.1.viton",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy 2.1 VTON model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy 2.1 VTON model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 2 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 2",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.1-vton-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 2 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-2.1-vton-3",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3 5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3.5",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3.5 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3 5",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3-5",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3.5 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3 5 4 3",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3.5-4-3",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3.5 4:3 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3 5 4 3",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3-5-4-3",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3.5 4:3 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3 5 1 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3.5-1-1",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3.5 1:1 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Vton 3 5 1 1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-vton-3-5-1-1",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Process video with virtual try-on using Lucy VTON 3.5 1:1 model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-image-2",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-pro-i2i",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy_pro_i2i",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Create Job Lucy Image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/jobs/lucy-image-latest",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          },
+          {
+            "name": "User-Agent",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "multipart-form",
+          "data": []
+        }
+      },
+      "docs": "Submit async job: Generate image from image using Lucy Image model."
+    },
+    {
+      "info": {
+        "name": "Get Job",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/jobs/:job_id",
+        "params": [
+          {
+            "name": "job_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get Job"
+    },
+    {
+      "info": {
+        "name": "Get Job Content",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "{{baseUrl}}/v1/jobs/:job_id/content",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "params": [
+          {
+            "name": "job_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Download the result of a completed job.\n\nReturns:\n    Binary content (image/video) or error if not ready/not found"
+    },
+    {
+      "info": {
+        "name": "Create Client Token",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/client/tokens",
+        "headers": [
+          {
+            "name": "x-api-key",
+            "value": ""
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create an ephemeral API token for client sessions."
+    },
+    {
+      "info": {
+        "name": "Resolve Models",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "{{baseUrl}}/v1/models/resolve",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Resolve one or more public model names/aliases to canonical model ids."
+    }
+  ],
+  "bundled": true
+}
