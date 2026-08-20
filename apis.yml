@@ -22,6 +22,21 @@ modified: '2026-08-01'
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
 - Artificial Intelligence
+- Machine-Learning
+- Video
+- Video Generation
+- Video Editing
+- Image Editing
+- Real-Time
+- Generative AI
+- World Models
+- Streaming
+- WebRTC
+- Media
+- Developer Tools
+- Company
+tags_raw:
+- Artificial Intelligence
 - Machine Learning
 - Video
 - Video Generation
@@ -52,6 +67,12 @@ apis:
   - Video Editing
   - Image Editing
   - Artificial Intelligence
+  - Real-Time
+  tags_raw:
+  - Video Generation
+  - Video Editing
+  - Image Editing
+  - Artificial Intelligence
   - Real Time
   properties:
   - type: OpenAPI
@@ -75,6 +96,11 @@ apis:
   humanURL: https://docs.platform.decart.ai/models/realtime/overview
   baseURL: https://api.decart.ai
   tags:
+  - Real-Time
+  - Streaming
+  - WebRTC
+  - Video Editing
+  tags_raw:
   - Real Time
   - Streaming
   - WebRTC
@@ -94,6 +120,11 @@ apis:
   humanURL: https://docs.platform.decart.ai/models/realtime/oasis-3
   baseURL: https://api.decart.ai
   tags:
+  - World Models
+  - Real-Time
+  - gRPC
+  - Robotics
+  tags_raw:
   - World Models
   - Real Time
   - gRPC
