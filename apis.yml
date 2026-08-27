@@ -51,48 +51,14 @@ tags_raw:
 - Developer Tools
 - Company
 apis:
-- aid: decart:decart-api
-  name: Decart API
-  description: 'The Decart REST API at api.decart.ai. Covers the Queue API (submit
-    an asynchronous video job against a Lucy model, poll its status, download the
-    rendered content), the Process API (synchronous image editing that returns image
-    bytes), the Files API (upload a reference asset once, reuse it by file_* id, delete
-    it before its TTL), ephemeral client-token minting for browser and mobile realtime
-    sessions, realtime concurrency quota, and model-alias resolution. Authenticated
-    with an x-api-key header.'
-  humanURL: https://docs.platform.decart.ai/getting-started/overview
-  baseURL: https://api.decart.ai
-  tags:
-  - Video Generation
-  - Video Editing
-  - Image Editing
-  - Artificial Intelligence
-  - Real-Time
-  tags_raw:
-  - Video Generation
-  - Video Editing
-  - Image Editing
-  - Artificial Intelligence
-  - Real Time
-  properties:
-  - type: OpenAPI
-    url: openapi/decart-api-openapi-original.json
-  - type: OpenAPI
-    url: openapi/decart-platform-openapi-original.json
-  - type: Documentation
-    url: https://docs.platform.decart.ai/
-  - type: APIReference
-    url: https://docs.platform.decart.ai/api-reference/lucy-25
-  - type: Authentication
-    url: authentication/decart-authentication.yml
 - aid: decart:decart-realtime-api
   name: Decart Realtime API
-  description: 'The realtime video transformation surface. A client opens a WebRTC
-    session (LiveKit-managed transport) against a Lucy realtime model and streams
-    camera or video frames in; the model returns transformed frames live, and the
-    prompt or reference image can be swapped mid-session. Browser and mobile clients
-    authenticate with short-lived ek_ client tokens minted server-side, optionally
-    scoped to specific models, origins, and a maximum session duration.'
+  description: >-
+    The realtime video transformation surface. A client opens a WebRTC session (LiveKit-managed transport)
+    against a Lucy realtime model and streams camera or video frames in; the model returns transformed
+    frames live, and the prompt or reference image can be swapped mid-session. Browser and mobile clients
+    authenticate with short-lived ek_ client tokens minted server-side, optionally scoped to specific
+    models, origins, and a maximum session duration.
   humanURL: https://docs.platform.decart.ai/models/realtime/overview
   baseURL: https://api.decart.ai
   tags:
@@ -112,11 +78,11 @@ apis:
     url: https://docs.platform.decart.ai/getting-started/quickstart
 - aid: decart:decart-oasis-a2v
   name: Decart Oasis Action-to-Video (gRPC)
-  description: 'A gRPC session protocol for Oasis 3 Preview, Decart''s promptable
-    real-time world model. A client initializes a session, sets a scene with a text
-    prompt, then loops Infer calls that submit four driving actions (throttle and
-    steering) and receive four generated camera frames, before calling Finish to release
-    the session. Published as proto3 definitions inside the decart-oasis Python SDK.'
+  description: >-
+    A gRPC session protocol for Oasis 3 Preview, Decart's promptable real-time world model. A client initializes
+    a session, sets a scene with a text prompt, then loops Infer calls that submit four driving actions
+    (throttle and steering) and receive four generated camera frames, before calling Finish to release
+    the session. Published as proto3 definitions inside the decart-oasis Python SDK.
   humanURL: https://docs.platform.decart.ai/models/realtime/oasis-3
   baseURL: https://api.decart.ai
   tags:
@@ -138,10 +104,11 @@ apis:
     url: https://docs.platform.decart.ai/models/realtime/oasis-3
 - aid: decart:decart-docs-mcp
   name: Decart Documentation MCP Server
-  description: 'A hosted, unauthenticated Model Context Protocol server at docs.platform.decart.ai/mcp
-    that exposes the Decart API Platform documentation to agents. Three tools: full-text
-    search across the knowledge base, a read-only virtual filesystem query over the
-    docs pages and OpenAPI specs, and a documentation feedback submission.'
+  description: >-
+    A hosted, unauthenticated Model Context Protocol server at docs.platform.decart.ai/mcp that exposes
+    the Decart API Platform documentation to agents. Three tools: full-text search across the knowledge
+    base, a read-only virtual filesystem query over the docs pages and OpenAPI specs, and a documentation
+    feedback submission.
   humanURL: https://docs.platform.decart.ai/
   baseURL: https://docs.platform.decart.ai/mcp
   tags:
@@ -153,6 +120,134 @@ apis:
     url: mcp/decart-mcp.yml
   - type: ToolCrosswalk
     url: mcp/decart-tool-crosswalk.yml
+- aid: decart:decart-client-api
+  name: Decart Client API
+  description: The Client API from Decart — 1 operation(s) for client.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Client
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-client-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-files-api
+  name: Decart Files API
+  description: The Files API from Decart — 2 operation(s) for files.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-files-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-generate-api
+  name: Decart Generate API
+  description: The Generate API from Decart — 4 operation(s) for generate.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Generate
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-generate-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-jobs-api
+  name: Decart Jobs API
+  description: The Jobs API from Decart — 43 operation(s) for jobs.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-models-api
+  name: Decart Models API
+  description: The Models API from Decart — 1 operation(s) for models.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Models
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-models-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-realtime-api
+  name: Decart Realtime API
+  description: The Realtime API from Decart — 1 operation(s) for realtime.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Realtime
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-realtime-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-verify-api
+  name: Decart Verify API
+  description: The Verify API from Decart — 1 operation(s) for verify.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Verify
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-verify-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
+- aid: decart:decart-watch-stream-api
+  name: Decart Watch Stream API
+  description: The Watch Stream API from Decart — 1 operation(s) for watch stream.
+  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  baseURL: https://api.decart.ai
+  tags:
+  - Watch Stream
+  properties:
+  - type: OpenAPI
+    url: openapi/decart-watch-stream-api-openapi.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/
+  - type: APIReference
+    url: https://docs.platform.decart.ai/api-reference/lucy-25
+  - type: Authentication
+    url: authentication/decart-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
