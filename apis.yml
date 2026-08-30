@@ -138,6 +138,8 @@ apis:
   humanURL: https://docs.platform.decart.ai/getting-started/overview
   baseURL: https://api.decart.ai
   tags:
+  - Clients
+  tags_raw:
   - Client
   properties:
   - type: OpenAPI
@@ -154,6 +156,8 @@ apis:
   humanURL: https://docs.platform.decart.ai/getting-started/overview
   baseURL: https://api.decart.ai
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -186,6 +190,8 @@ apis:
   humanURL: https://docs.platform.decart.ai/getting-started/overview
   baseURL: https://api.decart.ai
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -218,6 +224,8 @@ apis:
   humanURL: https://docs.platform.decart.ai/getting-started/overview
   baseURL: https://api.decart.ai
   tags:
+  - Real-Time
+  tags_raw:
   - Realtime
   properties:
   - type: OpenAPI
