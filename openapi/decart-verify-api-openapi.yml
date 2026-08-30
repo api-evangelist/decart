@@ -1,0 +1,105 @@
+openapi: 3.2.0
+info:
+  title: Decart Verify API
+  version: 1.0.0
+tags:
+- name: Verify
+paths:
+  /v1/verify:
+    post:
+      summary: Verify Content
+      description: 'Check whether a video or image carries the Decart invisible provenance
+
+        watermark. Returns a detection verdict with confidence; the watermark
+
+        survives re-encoding and format conversion.
+
+
+        AUTHED (API key), like every other /v1 endpoint. A public no-auth tier is
+
+        a conditional follow-up: SB 942 requires a free public detection tool of
+
+        COVERED providers only — if legal rules we''re covered, drop the two auth
+
+        lines below and add per-IP limit_req at external-nginx (both regions)
+
+        before exposure. The hardening here (size cap before body read, in-flight
+
+        cap, sanitized errors) deliberately assumes untrusted callers either way,
+
+        so that flip stays a two-line change.
+
+
+        Deliberately takes the raw Request, not an UploadFile parameter: FastAPI
+
+        resolves File/Form parameters by spooling the ENTIRE multipart body before
+
+        the handler runs. Auth and Content-Length are checked first; uvicorn/h11
+
+        enforces the declared length, so the cap genuinely bounds spooling.
+
+
+        Backed by the watermark-verify service (WATERMARK_VERIFY_UPSTREAM); 501
+
+        in environments where none is configured.'
+      operationId: verify_content_v1_verify_post
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Verify
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

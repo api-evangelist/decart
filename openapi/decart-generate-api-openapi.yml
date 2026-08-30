@@ -1,0 +1,480 @@
+openapi: 3.2.0
+info:
+  title: Decart Generate API
+  version: 1.0.0
+  description: 'Operations tagged Generate across 2 of this provider''s published API definitions: decart-api-openapi-original.json, decart-platform-openapi-original.json. Each path carries the servers of the definition it was published in.'
+tags:
+- name: Generate
+paths:
+  /v1/generate/lucy-image-2:
+    post:
+      summary: Generate Lucy Image
+      description: Generate image from image using Lucy Image model.
+      operationId: generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      - name: User-Agent
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User-Agent
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Generate
+  /v1/generate/lucy-pro-i2i:
+    post:
+      summary: Generate Lucy Image
+      description: Generate image from image using Lucy Image model.
+      operationId: generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      - name: User-Agent
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User-Agent
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Generate
+  /v1/generate/lucy_pro_i2i:
+    post:
+      summary: Generate Lucy Image
+      description: Generate image from image using Lucy Image model.
+      operationId: generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      - name: User-Agent
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User-Agent
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Generate
+  /v1/generate/lucy-image-latest:
+    post:
+      summary: Generate Lucy Image
+      description: Generate image from image using Lucy Image model.
+      operationId: generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      - name: User-Agent
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: User-Agent
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Generate
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post
+    Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post
+    Body_generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post
+    Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Body_generate_lucy_image_2_v1_generate_lucy_image_2_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          format: binary
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+            format: binary
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295
+          minimum: 0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the image generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_2_v1_generate_lucy_image_2_post
+    Body_generate_lucy_image_v1_generate_lucy_image_latest_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+          format: binary
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+            format: binary
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295
+          minimum: 0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_image_latest_post
+x-refined-from:
+- decart-api-openapi-original.json
+- decart-platform-openapi-original.json

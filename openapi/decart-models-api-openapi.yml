@@ -1,0 +1,106 @@
+openapi: 3.2.0
+info:
+  title: Decart Models API
+  version: 1.0.0
+  description: 'Operations tagged Models across 2 of this provider''s published API definitions: decart-api-openapi-original.json, decart-platform-openapi-original.json. Each path carries the servers of the definition it was published in.'
+tags:
+- name: Models
+paths:
+  /v1/models/resolve:
+    post:
+      summary: Resolve Models
+      description: Resolve one or more public model names/aliases to canonical model ids.
+      operationId: resolve_models_v1_models_resolve_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelResolveRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelResolveResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Models
+components:
+  schemas:
+    ModelResolveResponse:
+      properties:
+        model_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Model Id
+        model_ids:
+          anyOf:
+          - additionalProperties:
+              type: string
+            type: object
+          - type: 'null'
+          title: Model Ids
+      type: object
+      title: ModelResolveResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ModelResolveRequest:
+      properties:
+        model:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Model
+        models:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Models
+      type: object
+      title: ModelResolveRequest
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+x-refined-from:
+- decart-api-openapi-original.json
+- decart-platform-openapi-original.json

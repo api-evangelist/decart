@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  title: Decart Realtime API
+  version: 1.0.0
+  description: 'Operations tagged Realtime across 2 of this provider''s published API definitions: decart-api-openapi-original.json, decart-platform-openapi-original.json. Each path carries the servers of the definition it was published in.'
+tags:
+- name: Realtime
+paths:
+  /v1/realtime/quota:
+    get:
+      summary: Get Realtime Quota
+      description: 'Current concurrent realtime session quota state for the authenticated account.
+
+
+        For org-scoped keys the count is org-wide (shared across the org''s keys/users).'
+      operationId: get_realtime_quota_v1_realtime_quota_get
+      parameters:
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RealtimeQuotaResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Realtime
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    RealtimeQuotaResponse:
+      properties:
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+        active:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Active
+        remaining:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Remaining
+      type: object
+      title: RealtimeQuotaResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+x-refined-from:
+- decart-api-openapi-original.json
+- decart-platform-openapi-original.json
