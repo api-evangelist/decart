@@ -2,7 +2,6 @@ openapi: 3.2.0
 info:
   title: Decart Realtime API
   version: 1.0.0
-  description: 'Operations tagged Realtime across 2 of this provider''s published API definitions: decart-api-openapi-original.json, decart-platform-openapi-original.json. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Realtime
 paths:
@@ -40,34 +39,6 @@ paths:
       - Realtime
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    RealtimeQuotaResponse:
-      properties:
-        limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Limit
-        active:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Active
-        remaining:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Remaining
-      type: object
-      title: RealtimeQuotaResponse
     ValidationError:
       properties:
         loc:
@@ -94,6 +65,31 @@ components:
       - msg
       - type
       title: ValidationError
-x-refined-from:
-- decart-api-openapi-original.json
-- decart-platform-openapi-original.json
+    RealtimeQuotaResponse:
+      properties:
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+        active:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Active
+        remaining:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Remaining
+      type: object
+      title: RealtimeQuotaResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

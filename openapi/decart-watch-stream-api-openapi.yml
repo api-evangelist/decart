@@ -42,32 +42,6 @@ paths:
       - Watch Stream
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    WatchStreamResponse:
-      properties:
-        livekit_url:
-          type: string
-          title: Livekit Url
-        token:
-          type: string
-          title: Token
-        room_name:
-          type: string
-          title: Room Name
-      type: object
-      required:
-      - livekit_url
-      - token
-      - room_name
-      title: WatchStreamResponse
     ValidationError:
       properties:
         loc:
@@ -94,3 +68,29 @@ components:
       - msg
       - type
       title: ValidationError
+    WatchStreamResponse:
+      properties:
+        livekit_url:
+          type: string
+          title: Livekit Url
+        token:
+          type: string
+          title: Token
+        room_name:
+          type: string
+          title: Room Name
+      type: object
+      required:
+      - livekit_url
+      - token
+      - room_name
+      title: WatchStreamResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

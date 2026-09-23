@@ -2,7 +2,6 @@ openapi: 3.2.0
 info:
   title: Decart Files API
   version: 1.0.0
-  description: 'Operations tagged Files across 2 of this provider''s published API definitions: decart-api-openapi-original.json, decart-platform-openapi-original.json. Each path carries the servers of the definition it was published in.'
 tags:
 - name: Files
 paths:
@@ -121,6 +120,32 @@ paths:
       - Files
 components:
   schemas:
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     FileReferenceResponse:
       properties:
         id:
@@ -156,15 +181,6 @@ components:
       - created_at
       - expires_at
       title: FileReferenceResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     Body_upload_file_v1_files_post:
       properties:
         file:
@@ -182,50 +198,12 @@ components:
       required:
       - file
       title: Body_upload_file_v1_files_post
-    ValidationError:
+    HTTPValidationError:
       properties:
-        loc:
+        detail:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
+          title: Detail
       type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Body_upload_file_v1_files_post_2:
-      properties:
-        file:
-          type: string
-          contentMediaType: application/octet-stream
-          format: binary
-          title: File
-          description: File to upload
-        ttl_seconds:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Ttl Seconds
-          description: TTL in seconds (60..2_592_000), or "persistent" for no expiry. Omit for the platform default (24h).
-      type: object
-      required:
-      - file
-      title: Body_upload_file_v1_files_post
-x-refined-from:
-- decart-api-openapi-original.json
-- decart-platform-openapi-original.json
+      title: HTTPValidationError
