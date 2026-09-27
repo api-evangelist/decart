@@ -1793,40 +1793,7 @@ paths:
       - Jobs
 components:
   schemas:
-    Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_samsung_hyphen_robot_hyphen_poc_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the video editing
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: false
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_samsung_hyphen_robot_hyphen_poc_post
-    Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_4_hyphen_3_post:
+    Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_1_hyphen_1_post:
       properties:
         data:
           type: string
@@ -1865,8 +1832,8 @@ components:
       type: object
       required:
       - data
-      title: Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_4_hyphen_3_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_post:
+      title: Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_1_hyphen_1_post
+    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_post:
       properties:
         data:
           type: string
@@ -1905,94 +1872,8 @@ components:
       type: object
       required:
       - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_post
-    Body_create_job_lucy_2_5_v1_jobs_lucy_underscore_2_underscore_5_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-        self_anchor:
-          type: boolean
-          title: Self Anchor
-          description: Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_5_v1_jobs_lucy_underscore_2_underscore_5_post
-    Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_2_post:
-      properties:
-        prompt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Prompt
-          description: Text prompt for the video editing (optional)
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file to process (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_2_post
-    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_viton_post:
+      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_dot_1_post:
       properties:
         data:
           type: string
@@ -2031,7 +1912,87 @@ components:
       type: object
       required:
       - data
-      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_viton_post
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_dot_1_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_underscore_preview_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_underscore_preview_post
     Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_dot_5_post:
       properties:
         data:
@@ -2077,52 +2038,7 @@ components:
       required:
       - data
       title: Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_dot_5_post
-    Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_latest_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-        self_anchor:
-          type: boolean
-          title: Self Anchor
-          description: Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_latest_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_post:
+    Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_4_hyphen_3_post:
       properties:
         data:
           type: string
@@ -2161,18 +2077,58 @@ components:
       type: object
       required:
       - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_post
-    Body_create_job_lucy_image_v1_jobs_lucy_hyphen_pro_hyphen_i2i_post:
+      title: Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_4_hyphen_3_post
+    Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_4_hyphen_3_post:
       properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the image generation
         data:
           type: string
           contentMediaType: application/octet-stream
           title: Data
-          description: Image file to process
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_4_hyphen_3_post
+    Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_hyphen_latest_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the video editing
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
         reference_image:
           anyOf:
           - type: string
@@ -2185,14 +2141,12 @@ components:
           maximum: 4294967295.0
           minimum: 0.0
           title: Seed
-          description: Seed for the image generation
+          description: Seed for the video generation
         resolution:
           type: string
-          enum:
-          - 720p
-          - 480p
+          const: 720p
           title: Resolution
-          description: Resolution of the image generation
+          description: Resolution of the video
           default: 720p
         enhance_prompt:
           type: boolean
@@ -2203,247 +2157,7 @@ components:
       required:
       - prompt
       - data
-      title: Body_create_job_lucy_image_v1_jobs_lucy_hyphen_pro_hyphen_i2i_post
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_latest_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_latest_post
-    Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_hyphen_5_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-        self_anchor:
-          type: boolean
-          title: Self Anchor
-          description: Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_hyphen_5_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_v2v_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_v2v_post
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_3_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_3_post
-    Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_vton_hyphen_2_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_vton_hyphen_2_post
+      title: Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_hyphen_latest_post
     Body_create_job_lucy_restyle_2_v1_jobs_mirage_underscore_v2_post:
       properties:
         prompt:
@@ -2485,369 +2199,6 @@ components:
       required:
       - data
       title: Body_create_job_lucy_restyle_2_v1_jobs_mirage_underscore_v2_post
-    Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_post
-    Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_post
-    Body_create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_latest_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the image generation
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Image file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the image generation
-        resolution:
-          type: string
-          enum:
-          - 720p
-          - 480p
-          title: Resolution
-          description: Resolution of the image generation
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_latest_post
-    Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_1_hyphen_1_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_1_hyphen_1_post
-    Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_v2v_post:
-      properties:
-        prompt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Prompt
-          description: Text prompt for the video editing (optional)
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file to process (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_v2v_post
-    Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_4_hyphen_3_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_5_4_3_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_4_hyphen_3_post
-    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_underscore_preview_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_underscore_preview_post
-    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_vton_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_vton_post
     Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_3_post:
       properties:
         data:
@@ -2928,7 +2279,7 @@ components:
       required:
       - data
       title: Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_hyphen_v2v_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_v2v_underscore_14b_underscore_rt_post:
+    Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_hyphen_5_post:
       properties:
         data:
           type: string
@@ -2964,204 +2315,16 @@ components:
           title: Enhance Prompt
           description: Whether to enhance the prompt
           default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_v2v_underscore_14b_underscore_rt_post
-    Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_solomon_hyphen_robot_hyphen_poc_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the video editing
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
+        self_anchor:
           type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: false
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_solomon_hyphen_robot_hyphen_poc_post
-    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_dot_viton_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
+          title: Self Anchor
+          description: Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.
           default: true
       type: object
       required:
       - data
-      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_dot_viton_post
-    Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_hyphen_latest_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the video editing
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_hyphen_latest_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_rt_post
-    Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_2_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_2_post
-    Body_create_job_lucy_image_v1_jobs_lucy_underscore_pro_underscore_i2i_post:
+      title: Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_2_hyphen_5_post
+    Body_create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_latest_post:
       properties:
         prompt:
           type: string
@@ -3202,7 +2365,146 @@ components:
       required:
       - prompt
       - data
-      title: Body_create_job_lucy_image_v1_jobs_lucy_underscore_pro_underscore_i2i_post
+      title: Body_create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_latest_post
+    Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_samsung_hyphen_robot_hyphen_poc_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the video editing
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: false
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_samsung_hyphen_robot_hyphen_poc_post
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_2_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_2_dot_1_hyphen_vton_hyphen_2_post
+    Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_vton_hyphen_2_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_2_v1_jobs_lucy_hyphen_vton_hyphen_2_post
     Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_post:
       properties:
         prompt:
@@ -3243,159 +2545,6 @@ components:
       - prompt
       - data
       title: Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_clip_post
-    Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_pro_hyphen_v2v_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the video editing
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_pro_hyphen_v2v_post
-    Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_robot_hyphen_720p_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the video editing
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: false
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_robot_hyphen_720p_post
-    Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_dot_1_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_dot_1_post
-    Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_1_hyphen_1_post:
-      properties:
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Video file to process
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt. Defaults to an empty string.
-          default: ''
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the video generation
-        resolution:
-          type: string
-          const: 720p
-          title: Resolution
-          description: Resolution of the video
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - data
-      title: Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_hyphen_1_hyphen_1_post
     Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_latest_post:
       properties:
         prompt:
@@ -3437,6 +2586,175 @@ components:
       required:
       - data
       title: Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_latest_post
+    Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_2_post:
+      properties:
+        prompt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Prompt
+          description: Text prompt for the video editing (optional)
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file to process (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_2_post
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_solomon_hyphen_robot_hyphen_poc_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the video editing
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: false
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_solomon_hyphen_robot_hyphen_poc_post
+    Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_v2v_post:
+      properties:
+        prompt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Prompt
+          description: Text prompt for the video editing (optional)
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file to process (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_restyle_2_v1_jobs_lucy_hyphen_restyle_hyphen_v2v_post
+    Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_latest_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+        self_anchor:
+          type: boolean
+          title: Self Anchor
+          description: Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_5_v1_jobs_lucy_hyphen_latest_post
     Body_create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_2_post:
       properties:
         prompt:
@@ -3479,3 +2797,685 @@ components:
       - prompt
       - data
       title: Body_create_job_lucy_image_v1_jobs_lucy_hyphen_image_hyphen_2_post
+    Body_create_job_lucy_image_v1_jobs_lucy_hyphen_pro_hyphen_i2i_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the image generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_create_job_lucy_image_v1_jobs_lucy_hyphen_pro_hyphen_i2i_post
+    Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_latest_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_latest_post
+    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_viton_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_viton_post
+    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_dot_viton_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_2_dot_1_dot_viton_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_v2v_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_underscore_v2v_post
+    Body_create_job_lucy_image_v1_jobs_lucy_underscore_pro_underscore_i2i_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the image generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_create_job_lucy_image_v1_jobs_lucy_underscore_pro_underscore_i2i_post
+    Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_1_hyphen_1_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_3_5_1_1_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_hyphen_1_hyphen_1_post
+    Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_pro_hyphen_v2v_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the video editing
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_create_job_lucy_clip_v1_jobs_lucy_hyphen_pro_hyphen_v2v_post
+    Body_create_job_lucy_2_5_v1_jobs_lucy_underscore_2_underscore_5_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+        self_anchor:
+          type: boolean
+          title: Self Anchor
+          description: Re-anchor on the model's own latent (lucy-2.5 self-anchor). Default on.
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_5_v1_jobs_lucy_underscore_2_underscore_5_post
+    Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_robot_hyphen_720p_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the video editing
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: false
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_create_job_lucy_robot_720p_v1_jobs_lucy_hyphen_robot_hyphen_720p_post
+    Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_3_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_3_v1_jobs_lucy_hyphen_vton_hyphen_3_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_2_post
+    Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_hyphen_5_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_v2v_underscore_14b_underscore_rt_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_underscore_v2v_underscore_14b_underscore_rt_post
+    Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_3_5_v1_jobs_lucy_hyphen_vton_hyphen_3_dot_5_post
+    Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_vton_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_vton_v1_jobs_lucy_hyphen_vton_post
+    Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_post:
+      properties:
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Video file to process
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt. Defaults to an empty string.
+          default: ''
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the video generation
+        resolution:
+          type: string
+          const: 720p
+          title: Resolution
+          description: Resolution of the video
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - data
+      title: Body_create_job_lucy_2_1_v1_jobs_lucy_hyphen_2_post

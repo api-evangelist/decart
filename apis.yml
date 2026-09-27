@@ -47,9 +47,13 @@ specificationVersion: '0.23'
 created: '2026-08-01'
 modified: '2026-08-01'
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+x-docs-platform: mintlify
+x-docs-platform-confidence: medium
+x-docs-platform-checked: 2026-09-25
+x-docs-hosting: vercel
 tags:
 - Artificial Intelligence
-- Machine-Learning
+- Machine Learning
 - Video
 - Video Generation
 - Video Editing
@@ -62,6 +66,7 @@ tags:
 - Media
 - Developer Tools
 - Company
+- A2A
 tags_raw:
 - Artificial Intelligence
 - Machine Learning
@@ -77,32 +82,9 @@ tags_raw:
 - Media
 - Developer Tools
 - Company
+- Machine-Learning
+- A2A
 apis:
-- aid: decart:decart-realtime-api
-  name: Decart Realtime API
-  description: >-
-    The realtime video transformation surface. A client opens a WebRTC session (LiveKit-managed transport)
-    against a Lucy realtime model and streams camera or video frames in; the model returns transformed
-    frames live, and the prompt or reference image can be swapped mid-session. Browser and mobile clients
-    authenticate with short-lived ek_ client tokens minted server-side, optionally scoped to specific
-    models, origins, and a maximum session duration.
-  humanURL: https://docs.platform.decart.ai/models/realtime/overview
-  baseURL: https://api.decart.ai
-  tags:
-  - Real-Time
-  - Streaming
-  - WebRTC
-  - Video Editing
-  tags_raw:
-  - Real Time
-  - Streaming
-  - WebRTC
-  - Video Editing
-  properties:
-  - type: Documentation
-    url: https://docs.platform.decart.ai/models/realtime/overview
-  - type: GettingStarted
-    url: https://docs.platform.decart.ai/getting-started/quickstart
 - aid: decart:decart-oasis-a2v
   name: Decart Oasis Action-to-Video (gRPC)
   description: >-
@@ -235,13 +217,24 @@ apis:
     url: authentication/decart-authentication.yml
 - aid: decart:decart-realtime-api
   name: Decart Realtime API
-  description: The Realtime API from Decart — 1 operation(s) for realtime.
-  humanURL: https://docs.platform.decart.ai/getting-started/overview
+  description: The realtime video transformation surface. A client opens a WebRTC session (LiveKit-managed
+    transport) against a Lucy realtime model and streams camera or video frames in; the model returns transformed
+    frames live, and the prompt or reference image can be swapped mid-session. Browser and mobile clients
+    authenticate with short-lived ek_ client tokens minted server-side, optionally scoped to specific models,
+    origins, and a maximum session duration.
+  humanURL: https://docs.platform.decart.ai/models/realtime/overview
   baseURL: https://api.decart.ai
   tags:
   - Real-Time
+  - Streaming
+  - WebRTC
+  - Video Editing
   tags_raw:
   - Realtime
+  - Real Time
+  - Streaming
+  - WebRTC
+  - Video Editing
   properties:
   - type: OpenAPI
     url: openapi/decart-realtime-api-openapi.yml
@@ -251,6 +244,10 @@ apis:
     url: https://docs.platform.decart.ai/api-reference/lucy-25
   - type: Authentication
     url: authentication/decart-authentication.yml
+  - type: Documentation
+    url: https://docs.platform.decart.ai/models/realtime/overview
+  - type: GettingStarted
+    url: https://docs.platform.decart.ai/getting-started/quickstart
 - aid: decart:decart-verify-api
   name: Decart Verify API
   description: The Verify API from Decart — 1 operation(s) for verify.
@@ -380,3 +377,10 @@ common:
   url: overlays/decart-api-overlay.yaml
 - type: Protobuf
   url: grpc/decart-a2v.proto
+x-a2a:
+  verified: true
+  probed: '2026-09-26'
+  url: "https://docs.platform.decart.ai/.well-known/agent-card.json"
+  grade: "conformant"
+  protocol_version: "0.3"
+  control: 404
