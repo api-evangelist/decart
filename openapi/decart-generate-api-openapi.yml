@@ -183,167 +183,6 @@ paths:
       - Generate
 components:
   schemas:
-    Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the image generation
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Image file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the image generation
-        resolution:
-          type: string
-          enum:
-          - 720p
-          - 480p
-          title: Resolution
-          description: Resolution of the video generation
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the image generation
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Image file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the image generation
-        resolution:
-          type: string
-          enum:
-          - 720p
-          - 480p
-          title: Resolution
-          description: Resolution of the video generation
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post
-    Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post:
-      properties:
-        prompt:
-          type: string
-          title: Prompt
-          description: Text prompt for the image generation
-        data:
-          type: string
-          contentMediaType: application/octet-stream
-          title: Data
-          description: Image file to process
-        reference_image:
-          anyOf:
-          - type: string
-            contentMediaType: application/octet-stream
-          - type: 'null'
-          title: Reference Image
-          description: Reference image file (optional)
-        seed:
-          type: integer
-          maximum: 4294967295.0
-          minimum: 0.0
-          title: Seed
-          description: Seed for the image generation
-        resolution:
-          type: string
-          enum:
-          - 720p
-          - 480p
-          title: Resolution
-          description: Resolution of the video generation
-          default: 720p
-        enhance_prompt:
-          type: boolean
-          title: Enhance Prompt
-          description: Whether to enhance the prompt
-          default: true
-      type: object
-      required:
-      - prompt
-      - data
-      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     Body_generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post:
       properties:
         prompt:
@@ -386,3 +225,164 @@ components:
       - prompt
       - data
       title: Body_generate_lucy_image_v1_generate_lucy_underscore_pro_underscore_i2i_post
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_latest_post
+    Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_pro_hyphen_i2i_post
+    Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post:
+      properties:
+        prompt:
+          type: string
+          title: Prompt
+          description: Text prompt for the image generation
+        data:
+          type: string
+          contentMediaType: application/octet-stream
+          title: Data
+          description: Image file to process
+        reference_image:
+          anyOf:
+          - type: string
+            contentMediaType: application/octet-stream
+          - type: 'null'
+          title: Reference Image
+          description: Reference image file (optional)
+        seed:
+          type: integer
+          maximum: 4294967295.0
+          minimum: 0.0
+          title: Seed
+          description: Seed for the image generation
+        resolution:
+          type: string
+          enum:
+          - 720p
+          - 480p
+          title: Resolution
+          description: Resolution of the video generation
+          default: 720p
+        enhance_prompt:
+          type: boolean
+          title: Enhance Prompt
+          description: Whether to enhance the prompt
+          default: true
+      type: object
+      required:
+      - prompt
+      - data
+      title: Body_generate_lucy_image_v1_generate_lucy_hyphen_image_hyphen_2_post

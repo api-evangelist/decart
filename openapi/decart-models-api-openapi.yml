@@ -33,6 +33,31 @@ paths:
       - Models
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ModelResolveRequest:
+      properties:
+        model:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Model
+        models:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Models
+      type: object
+      title: ModelResolveRequest
     ValidationError:
       properties:
         loc:
@@ -75,28 +100,3 @@ components:
           title: Model Ids
       type: object
       title: ModelResolveResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ModelResolveRequest:
-      properties:
-        model:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Model
-        models:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Models
-      type: object
-      title: ModelResolveRequest

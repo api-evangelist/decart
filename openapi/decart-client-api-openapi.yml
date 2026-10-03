@@ -48,6 +48,14 @@ paths:
       - Client
 components:
   schemas:
+    TokenConstraints:
+      properties:
+        realtime:
+          anyOf:
+          - $ref: '#/components/schemas/RealtimeConstraints'
+          - type: 'null'
+      type: object
+      title: TokenConstraints
     ValidationError:
       properties:
         loc:
@@ -74,14 +82,24 @@ components:
       - msg
       - type
       title: ValidationError
-    TokenConstraints:
+    RealtimeConstraints:
       properties:
-        realtime:
+        maxSessionDuration:
           anyOf:
-          - $ref: '#/components/schemas/RealtimeConstraints'
+          - type: integer
           - type: 'null'
+          title: Maxsessionduration
       type: object
-      title: TokenConstraints
+      title: RealtimeConstraints
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ClientTokenResponse:
       properties:
         apiKey:
@@ -112,15 +130,6 @@ components:
       - apiKey
       - expiresAt
       title: ClientTokenResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ClientTokenRequest:
       properties:
         expiresIn:
@@ -158,12 +167,3 @@ components:
           title: Metadata
       type: object
       title: ClientTokenRequest
-    RealtimeConstraints:
-      properties:
-        maxSessionDuration:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Maxsessionduration
-      type: object
-      title: RealtimeConstraints
