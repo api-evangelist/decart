@@ -159,3 +159,48 @@ plans:
     carries enterprise pricing depending on use case.
   contact: contact@decart.ai
   entries: []
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - negotiated
+  units:
+  - compute
+  plans:
+  - name: Free credits
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Realtime models — pay as you go
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Video models — pay as you go
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - compute
+    periods:
+    - per-use
+  - name: Image models — pay as you go
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - per-use
+  - name: Enterprise
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units: []
+    periods: []
