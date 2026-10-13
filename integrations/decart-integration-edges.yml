@@ -2,6 +2,7 @@ generated: '2026-10-13'
 method: searched
 checked:
 - https://aws.amazon.com/marketplace/
+- https://openrouter.ai/api/v1/models
 marketplace_apps: []
 edges:
 - partner_name: AWS Marketplace
@@ -19,3 +20,23 @@ edges:
   seller_name: Decart
   detected_by: sweep-cloud-marketplaces.py
   detected: '2026-10-13'
+- partner_name: OpenRouter
+  partner: openrouter
+  partner_match: router
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://openrouter.ai/api/v1/models
+  coverage_role:
+  - inference-host
+  router_signals:
+    inference-host:
+      models: 5
+      router_ids:
+      - Decart
+      tools_share: 1.0
+      structured_output_share: 1.0
+  matched_by: verified-token-table
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
