@@ -39,6 +39,34 @@ paths:
       - Realtime
 components:
   schemas:
+    RealtimeQuotaResponse:
+      properties:
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+        active:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Active
+        remaining:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Remaining
+      type: object
+      title: RealtimeQuotaResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -65,31 +93,3 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    RealtimeQuotaResponse:
-      properties:
-        limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Limit
-        active:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Active
-        remaining:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Remaining
-      type: object
-      title: RealtimeQuotaResponse
