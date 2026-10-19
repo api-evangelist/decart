@@ -11,7 +11,13 @@ paths:
       description: 'Current concurrent realtime session quota state for the authenticated account.
 
 
-        For org-scoped keys the count is org-wide (shared across the org''s keys/users).'
+        For org-scoped keys the count is org-wide (shared across the org''s keys/users).
+
+
+        `active` is a live counter, not a periodic aggregate: a session is counted the moment its connection is authenticated and released the moment it closes, so a read reflects a connect or disconnect within about a second. If one of our gateway instances crashes mid-session, its sessions can stay counted for up to 45 seconds before they expire.
+
+
+        Use this endpoint for coarse pre-flight checks and dashboards: poll at most once per second and stay under 10 requests per second per API key. `remaining` is advisory, since other sessions can start between your read and your connect, so always handle the connect-time rejection (WebSocket close code 1013, "Concurrent session limit reached.").'
       operationId: get_realtime_quota_v1_realtime_quota_get
       parameters:
       - name: x-api-key
@@ -39,34 +45,6 @@ paths:
       - Realtime
 components:
   schemas:
-    RealtimeQuotaResponse:
-      properties:
-        limit:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Limit
-        active:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Active
-        remaining:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Remaining
-      type: object
-      title: RealtimeQuotaResponse
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -93,3 +71,34 @@ components:
       - msg
       - type
       title: ValidationError
+    RealtimeQuotaResponse:
+      properties:
+        limit:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Limit
+          description: Configured concurrent-session cap. `null` means the account has no limit.
+        active:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Active
+          description: Live concurrent sessions. `null` when the account has no limit or the counter is temporarily unavailable; treat it as unknown and attempt the connect.
+        remaining:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Remaining
+          description: '`limit - active`, floored at 0. `null` whenever `active` is `null`.'
+      type: object
+      title: RealtimeQuotaResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

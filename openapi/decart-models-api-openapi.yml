@@ -7,9 +7,9 @@ tags:
 paths:
   /v1/models/resolve:
     post:
-      summary: Resolve Models
+      summary: Resolve Model Aliases
       description: Resolve one or more public model names/aliases to canonical model ids.
-      operationId: resolve_models_v1_models_resolve_post
+      operationId: resolve_model_aliases
       requestBody:
         content:
           application/json:
@@ -33,31 +33,6 @@ paths:
       - Models
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ModelResolveResponse:
-      properties:
-        model_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Model Id
-        model_ids:
-          anyOf:
-          - additionalProperties:
-              type: string
-            type: object
-          - type: 'null'
-          title: Model Ids
-      type: object
-      title: ModelResolveResponse
     ValidationError:
       properties:
         loc:
@@ -84,6 +59,15 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ModelResolveRequest:
       properties:
         model:
@@ -100,3 +84,19 @@ components:
           title: Models
       type: object
       title: ModelResolveRequest
+    ModelResolveResponse:
+      properties:
+        model_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Model Id
+        model_ids:
+          anyOf:
+          - additionalProperties:
+              type: string
+            type: object
+          - type: 'null'
+          title: Model Ids
+      type: object
+      title: ModelResolveResponse

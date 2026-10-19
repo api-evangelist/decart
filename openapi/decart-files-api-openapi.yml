@@ -6,14 +6,62 @@ tags:
 - name: Files
 paths:
   /v1/files:
+    get:
+      summary: List Files
+      description: 'List your uploaded files, newest first. Expired files are omitted, as they 404 on `GET /v1/files/{file_id}`.
+
+
+        Pages continue from the last file returned rather than from an offset, so an upload or delete between requests never repeats or skips a file. Pass the previous page''s `next_cursor` as `cursor`; the last page has `next_cursor: null`.'
+      operationId: list_files_v1_files_get
+      parameters:
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 1000
+          default: 100
+          title: Limit
+        description: Files per page (1..1000); default 100.
+      - name: cursor
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Cursor
+        description: '`next_cursor` from the previous page. Omit for the first page.'
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileListResponse'
+        '422':
+          description: Validation Error — `limit` out of range, or a `cursor` this endpoint did not return
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Files
     post:
       summary: Upload File
-      description: 'Upload a file once, get back a `file_*` reference id to reuse across generations.
+      description: 'Upload a file once and get back a `file_*` reference id you can reuse across generations.
 
 
-        The same reference can be used in realtime `set_image { image_ref }` and (after PR2)
-
-        in batch/queue endpoints via `data_ref` / `reference_image_ref` Form fields.'
+        The same reference can be passed to realtime `set_image` as `image_ref`, avoiding a re-upload of the underlying bytes on every call.'
       operationId: upload_file_v1_files_post
       parameters:
       - name: x-api-key
@@ -90,7 +138,7 @@ paths:
       - Files
     delete:
       summary: Delete File
-      description: Delete an uploaded file early (before TTL).
+      description: Delete an uploaded file early, before its TTL expires.
       operationId: delete_file_v1_files__file_id__delete
       parameters:
       - name: file_id
@@ -118,57 +166,65 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       tags:
       - Files
+  /v1/files/by-md5/{md5}:
+    get:
+      summary: Get File By MD5
+      description: Look up an uploaded file by the MD5 of its bytes, without knowing its `file_*` id. Returns the newest non-expired match when the same file was uploaded more than once. Compute the hash over the exact bytes you uploaded (for example `md5sum image.png`).
+      operationId: get_file_by_md5_v1_files_by_md5__md5__get
+      parameters:
+      - name: md5
+        in: path
+        required: true
+        schema:
+          type: string
+          pattern: ^[0-9a-fA-F]{32}$
+          title: Md5
+        description: Hex MD5 of the uploaded bytes
+      - name: x-api-key
+        in: header
+        required: true
+        schema:
+          type: string
+          description: API key for authentication
+          title: X-Api-Key
+        description: API key for authentication
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileReferenceResponse'
+        '404':
+          description: No non-expired upload with this MD5
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+                required:
+                - detail
+                title: FileNotFound
+              example:
+                detail: File not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Files
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    FileReferenceResponse:
-      properties:
-        id:
-          type: string
-          title: Id
-        filename:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Filename
-        mime_type:
-          type: string
-          title: Mime Type
-        size_bytes:
-          type: integer
-          title: Size Bytes
-        created_at:
-          type: string
-          format: date-time
-          title: Created At
-        expires_at:
-          anyOf:
-          - type: string
-            format: date-time
-          - type: 'null'
-          title: Expires At
-      type: object
-      required:
-      - id
-      - filename
-      - mime_type
-      - size_bytes
-      - created_at
-      - expires_at
-      title: FileReferenceResponse
     Body_upload_file_v1_files_post:
       properties:
         file:
           type: string
           contentMediaType: application/octet-stream
+          format: binary
           title: File
           description: File to upload
         ttl_seconds:
@@ -181,6 +237,25 @@ components:
       required:
       - file
       title: Body_upload_file_v1_files_post
+    FileListResponse:
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileReferenceResponse'
+          title: Files
+          description: Newest first.
+        next_cursor:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Next Cursor
+          description: Pass back as `cursor` to fetch the next page; null on the last page.
+      type: object
+      required:
+      - files
+      - next_cursor
+      title: FileListResponse
     ValidationError:
       properties:
         loc:
@@ -207,3 +282,54 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    FileReferenceResponse:
+      properties:
+        id:
+          type: string
+          title: Id
+        filename:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Filename
+        mime_type:
+          type: string
+          title: Mime Type
+        size_bytes:
+          type: integer
+          title: Size Bytes
+        md5:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Md5
+          description: Hex MD5 of the uploaded bytes. Null on files uploaded before hashes were recorded.
+        created_at:
+          type: string
+          format: date-time
+          title: Created At
+        expires_at:
+          anyOf:
+          - type: string
+            format: date-time
+          - type: 'null'
+          title: Expires At
+      type: object
+      required:
+      - id
+      - filename
+      - mime_type
+      - size_bytes
+      - md5
+      - created_at
+      - expires_at
+      title: FileReferenceResponse

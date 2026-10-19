@@ -48,14 +48,6 @@ paths:
       - Client
 components:
   schemas:
-    TokenConstraints:
-      properties:
-        realtime:
-          anyOf:
-          - $ref: '#/components/schemas/RealtimeConstraints'
-          - type: 'null'
-      type: object
-      title: TokenConstraints
     ClientTokenRequest:
       properties:
         expiresIn:
@@ -98,11 +90,7 @@ components:
         apiKey:
           type: string
           title: Apikey
-        token:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Token
+          description: Short-lived client token, signed so the gateway verifies it offline. Pass it to the SDK as `apiKey`.
         expiresAt:
           type: string
           title: Expiresat
@@ -123,24 +111,6 @@ components:
       - apiKey
       - expiresAt
       title: ClientTokenResponse
-    RealtimeConstraints:
-      properties:
-        maxSessionDuration:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Maxsessionduration
-      type: object
-      title: RealtimeConstraints
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -167,3 +137,29 @@ components:
       - msg
       - type
       title: ValidationError
+    TokenConstraints:
+      properties:
+        realtime:
+          anyOf:
+          - $ref: '#/components/schemas/RealtimeConstraints'
+          - type: 'null'
+      type: object
+      title: TokenConstraints
+    RealtimeConstraints:
+      properties:
+        maxSessionDuration:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Maxsessionduration
+      type: object
+      title: RealtimeConstraints
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError

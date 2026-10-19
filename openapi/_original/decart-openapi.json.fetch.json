@@ -1,0 +1,12 @@
+{
+ "url": "https://docs.platform.decart.ai/openapi.json",
+ "final": "https://docs.platform.decart.ai/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 50758,
+ "sha256": "c42449785cda117a3b7052e822718753ebff4a79f9aa096fe063d1b9122e5b71",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}
