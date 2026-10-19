@@ -26,3 +26,96 @@
   relationship: system-coverage
   status: not-a-workflow
   arazzo: null
+- slug: decart-a2a-protocol-own-agent-card
+  label: A2A protocol (own Agent Card)
+  partner_name: A2A protocol (own Agent Card)
+  category: A2A agent
+  type: register
+  channel: provider-built
+  evidence: https://docs.platform.decart.ai/.well-known/agent-card.json
+  source: edge
+  relationship: compatible
+  contract_reference:
+    register: provider's own /.well-known/agent-card.json
+    spec_file: null
+    standard: A2A
+    role: a2a-agent-card
+    registered_name: Decart API Platform
+    organization: Decart API Platform
+    matched_domain: decart.ai
+    matched_by: own-domain
+    detected_by: sweep-ai-agents.py
+    detected: '2026-10-15'
+  status: not-a-workflow
+  arazzo: null
+- slug: decart-npm-registry
+  label: npm registry
+  partner: npm
+  partner_name: npm registry
+  category: official SDK (JavaScript/TypeScript)
+  type: register
+  channel: package-registry
+  evidence: https://www.npmjs.com/package/@decartai/ai-sdk-provider
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: npm registry (public registry JSON)
+    spec_file: null
+    language: JavaScript/TypeScript
+    packages:
+    - name: '@decartai/ai-sdk-provider'
+      version: 0.0.3
+      released: '2026-02-26'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@decartai/ai-sdk-provider
+      repo_leg: domain:decart.ai
+      publisher_leg: org:decartai
+      matched_by: domain
+    - name: '@decartai/sdk'
+      version: 0.2.12
+      released: '2026-10-15'
+      released_field: modified
+      lapsed: false
+      page: https://www.npmjs.com/package/@decartai/sdk
+      repo_leg: github-org:decartai
+      publisher_leg: email:decart.ai
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
+- slug: decart-pypi
+  label: PyPI
+  partner: pypi
+  partner_name: PyPI
+  category: official SDK (Python)
+  type: register
+  channel: package-registry
+  evidence: https://pypi.org/project/decart/
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: PyPI (public registry JSON)
+    spec_file: null
+    language: Python
+    packages:
+    - name: decart
+      version: 0.2.3
+      released: '2026-10-14'
+      released_field: upload_time
+      lapsed: false
+      page: https://pypi.org/project/decart/
+      repo_leg: domain:decart.ai
+      publisher_leg: email:decart.ai
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  status: not-a-workflow
+  arazzo: null
