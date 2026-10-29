@@ -64,50 +64,143 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Decart is an AI research lab and API platform building real-time world models — foundation models that
-generate and transform video frame-by-frame as they are watched. The Decart API Platform exposes the Lucy
-family of realtime and batch video/image models plus the Oasis promptable world model through three
-surfaces: a Realtime API (WebRTC, LiveKit-managed) that edits a live camera or video stream with text
-prompts and reference images, a Queue API that submits asynchronous video jobs and polls them to
-completion, and a Process API for synchronous image editing.
+Decart is an AI research lab and API platform building real-time world models — foundation models that generate and transform video frame-by-frame as they are watched. Its Decart API Platform (platform.decart.ai) exposes the Lucy family of realtime and batch video/image models plus the Oasis promptable world model through three surfaces: a Realtime API that edits a live WebRTC camera or video stream with text prompts and reference images, a Queue API that submits asynchronous video jobs and polls them to completion, and a Process API for synchronous image editing. The platform ships first-party JavaScript, Python, Swift and Android SDKs, ephemeral client tokens for browser and mobile apps, a Files API for reusable reference images, and a gRPC action-to-video session protocol for Oasis 3 Preview. Pricing is pay-as-you-go and metered per generated second (video and realtime) or per generation (images).
 
-- Website — https://decart.ai/
-- Developer platform — https://platform.decart.ai/
-- Documentation — https://docs.platform.decart.ai/
-- Status — https://status.decart.ai/
-- GitHub — https://github.com/DecartAI
+**Areas:** Artificial Intelligence · Machine Learning · Video · Video Generation · Video Editing · Image Editing · Real-Time · Generative AI · World Models · Streaming · WebRTC · Media
 
-## What is captured here
+## Decart on APIs.io
 
-| Artifact | Where | Method |
-|---|---|---|
-| OpenAPI 3.1 (API host, 55 ops) | `openapi/decart-api-openapi-original.json` | searched — `https://api.decart.ai/openapi.json` |
-| OpenAPI 3.1 (curated, 20 ops) | `openapi/decart-platform-openapi-original.json` | searched — `https://docs.platform.decart.ai/openapi.json` |
-| A2A Agent Card (near-conformant) | `a2a/` | probed — `/.well-known/agent-card.json` |
-| MCP server (3 tools, unauthenticated) | `mcp/` | searched — live `tools/list` |
-| Tool crosswalk | `mcp/decart-tool-crosswalk.yml` | derived |
-| Provider-published Agent Skill + 5 generated | `skills/` | searched + generated |
-| gRPC proto3 (Oasis action-to-video) | `grpc/` | searched — `decart-oasis` sdist |
-| llms.txt | `llms/` | searched |
-| Packages / SDKs (8 first-party) | `packages/` | searched |
-| Pricing plans, rate limits | `plans/`, `rate-limits/` | searched / derived |
-| Authentication, conventions, errors, lifecycle, changelog | `authentication/`, `conventions/`, `errors/`, `lifecycle/`, `changelog/` | searched / derived |
-| Conformance, data model, examples, sandbox, overlay, well-known | `conformance/`, `data-model/`, `examples/`, `sandbox/`, `overlays/`, `well-known/` | derived / searched |
-| Domain security, agentic access | `security/`, `agentic-access/` | probed / generated |
+Everything profiled for Decart is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/decart/](https://apis.io/providers/decart/)** — or go straight to one of the APIs or properties below.
 
-## Notable findings
+### APIs (10)
 
-- **The real spec is on the API host.** `https://api.decart.ai/openapi.json` serves a 55-operation
-  FastAPI-generated document — including model aliases and preview routes — that is roughly three times
-  the curated 20-operation spec on the docs host. Both are captured.
-- **The MCP server is a documentation server, not an API wrapper.** All three tools search or query the
-  docs; none calls `api.decart.ai`. The tool crosswalk records a complete surface divergence: 0 of 20
-  REST operations has a tool.
-- **Decart publishes its own Agent Skill** at `/.well-known/agent-skills/decart/skill.md`, linked from
-  its agent card — a genuinely rare provider-authored agent surface. Saved verbatim.
-- **No idempotency contract, no webhooks, no RFC 9457.** Job completion is discovered only by polling,
-  and a retried submit is a second billable job.
-- **Model retirement is real but ungoverned.** Two production model families were retired in 2026 with a
-  named migration target, announced in the changelog — but there is no deprecation policy page, no
-  Sunset header, and retired routes are removed rather than flagged `deprecated` in the spec.
-- **No security.txt, no trust centre, no named certifications.** Probed across four hosts; all 404.
+- [Decart Oasis Action-to-Video (gRPC)](https://apis.io/apis/decart/decart-oasis-a2v/) — A gRPC session protocol for Oasis 3 Preview, Decart's promptable real-time world model. A client initializes a session, sets a scene with a text prompt,…
+- [Decart Documentation MCP Server](https://apis.io/apis/decart/decart-docs-mcp/) — A hosted, unauthenticated Model Context Protocol server at docs.platform.decart.ai/mcp that exposes the Decart API Platform documentation to agents. Three…
+- [Decart Client API](https://apis.io/apis/decart/decart-client-api/) — The Client API from Decart — 1 operation(s) for client.
+- [Decart Files API](https://apis.io/apis/decart/decart-files-api/) — The Files API from Decart — 2 operation(s) for files.
+- [Decart Generate API](https://apis.io/apis/decart/decart-generate-api/) — The Generate API from Decart — 4 operation(s) for generate.
+- [Decart Jobs API](https://apis.io/apis/decart/decart-jobs-api/) — The Jobs API from Decart — 43 operation(s) for jobs.
+- [Decart Models API](https://apis.io/apis/decart/decart-models-api/) — The Models API from Decart — 1 operation(s) for models.
+- [Decart Realtime API](https://apis.io/apis/decart/decart-realtime-api/) — The realtime video transformation surface. A client opens a WebRTC session (LiveKit-managed transport) against a Lucy realtime model and streams camera or…
+- [Decart Verify API](https://apis.io/apis/decart/decart-verify-api/) — The Verify API from Decart — 1 operation(s) for verify.
+- [Decart Watch Stream API](https://apis.io/apis/decart/decart-watch-stream-api/) — The Watch Stream API from Decart — 1 operation(s) for watch stream.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [decart-api-platform-docs](https://apis.io/servers/decart/decart-api-platform-docs/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Decart Agentic Access](https://apis.io/agentic-access/decart/decart-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Decart API](https://apis.io/collections/decart/open-decart-api-openapi-original/)
+- [Decart API](https://apis.io/collections/decart/open-decart-platform-openapi-original/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Decart Api Overlay](https://apis.io/overlays/decart/decart-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Decart Authentication](https://apis.io/security/decart/decart-authentication/)
+- [Decart Domain Security](https://apis.io/security/decart/decart-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Decart Plans Pricing](https://apis.io/plans/decart/decart-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Decart Rate Limits](https://apis.io/rate-limits/decart/decart-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://decart.ai/)
+- [Documentation](https://docs.platform.decart.ai/)
+- [Getting started](https://docs.platform.decart.ai/getting-started/quickstart)
+- [API reference](https://docs.platform.decart.ai/api-reference/lucy-25)
+- [Pricing](https://docs.platform.decart.ai/getting-started/pricing)
+- [Sign up](https://platform.decart.ai/sign-in)
+- [Changelog](https://docs.platform.decart.ai/changelog)
+- [Blog](https://decart.ai/blog)
+- [Terms of service](https://docs.platform.decart.ai/resources/terms-of-service)
+- [Privacy policy](https://docs.platform.decart.ai/resources/privacy-policy)
+- [GitHub](https://github.com/DecartAI)
+- [Status](https://status.decart.ai/)
+
+## API Evangelist rating
+
+**Kin Score 54.5** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.7 |
+| Contract quality | 44.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 75.0 |
+| Access clarity | 76.3 |
+
+**Agent readiness 34.7** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | near-conformant (partial credit) |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 22.7** — AI & Biometrics
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/decart/](https://apis.io/providers/decart/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Decart: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/decart/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
